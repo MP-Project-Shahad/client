@@ -23,7 +23,17 @@
 [MP-Project-Shahad](https://trello.com/b/yYCqELgt/mp-project-shahad)
 
 ## Project Slides
+
 [will be added soon!]
+
+## Server Repo
+
+[Server repo](https://github.com/MP-Project-Shahad/server)
+
+## Client Deployment
+
+[will be added soon!]
+
 
 ## Components 
 
