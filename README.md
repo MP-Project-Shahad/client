@@ -27,13 +27,13 @@
 | COMPONENT | URL               | Permissions | Behavior                          |
 | ----------- | ----------------- | ----------- | --------------------------------- |
 | landing       | "/"    | Public | Home page, will be accessible to all users.       |
-| userPage         | /UserPage/:id  |  Private `Authentication`| Users personal page to display user information. |
-| login&signUp       | /signin | Public | Sign in/up page, will be accessible to all users. |
-| confirm        | /confirm     | Public     | New users will be directed to this page to activate their accounts.            |
-| forgotPass        | /forgotPass  | Public  | A user can send a requiest to reset his password here. |
-| resetPass        | /resetPass/:id  | Private (will get the link on email) | User will get a reset link that will direct him to this page. |
-| lessons        | /lessons  | Private `Authentication` | This page will only show for logged in Users. |
-| lesson        | /lesson/:id  | Private `Authentication` | This page will only show for logged in Users who took the placement test and got assigned to a level. |
+| userPage         | "/UserPage/:id"  |  Private `Authentication`| Users personal page to display user information. |
+| login&signUp       | "/signin" | Public | Sign in/up page, will be accessible to all users. |
+| confirm        | "/confirm"     | Public     | New users will be directed to this page to activate their accounts.            |
+| forgotPass        | "/forgotPass"  | Public  | A user can send a requiest to reset his password here. |
+| resetPass        | "/resetPass/:id"  | Private (will get the link on email) | User will get a reset link that will direct him to this page. |
+| lessons        | "/lessons"  | Private `Authentication` | This page will only show for logged in Users. |
+| lesson        | "/lesson/:id"  | Private `Authentication` | This page will only show for logged in Users who took the placement test and got assigned to a level. |
 
 
 
