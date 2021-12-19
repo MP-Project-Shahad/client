@@ -34,6 +34,7 @@
 
 ## FrontEnd UML Diagram
 
-![Untitled Diagram drawio (1)](https://user-images.githubusercontent.com/92247858/146651223-7055f20f-7219-408f-805d-8f2185ff8c97.png)
+![Untitled Diagram drawio (1)](https://user-images.githubusercontent.com/92247858/146669117-84d78b47-a769-4df5-99c1-0f65db10624e.png)
+
 
 
