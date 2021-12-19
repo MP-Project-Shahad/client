@@ -22,6 +22,9 @@
 
 [MP-Project-Shahad](https://trello.com/b/yYCqELgt/mp-project-shahad)
 
+## Project Slides
+[will be added soon!]
+
 ## Components 
 
 | COMPONENT | URL               | Permissions | Behavior                          |
