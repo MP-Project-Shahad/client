@@ -1,0 +1,13 @@
+.textDivLanding {
+  border: 1px solid black;
+  width: 100%;
+  height: 400px;
+  margin-top: -20px;
+}
+
+.podcastDiv {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}

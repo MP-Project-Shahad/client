@@ -1,19 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router";
 import "./style.css";
 
 const Nav = () => {
+  const [navbar, setNavbar] = useState(false);
   const navigate = useNavigate();
 
+  const changeColor = () => {
+    // console.log(window.scrollY);
+    if (window.scrollY > 15) {
+      setNavbar(true);
+    } else {
+      setNavbar(false);
+    }
+  };
+  window.addEventListener("scroll", changeColor);
+
   return (
-    <div className="navMainDiv">
+    <div className={navbar ? "navMainDivScroll" : "navMainDiv"}>
       <div className="signBtnDiv">
         <button className="signBtn">تسجيل الدخول</button>
       </div>
       <div className="logoDiv">
         <img
           className="logoImg"
-          src="./ar.png"
+          src="./mp-logo.png"
           alt="logo"
           onClick={() => navigate("/")}
         />

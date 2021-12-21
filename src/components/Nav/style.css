@@ -10,7 +10,26 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  position: fixed;
+  /* background-color: white; */
+  top: 0;
+  z-index: 3;
+  /* border: 1px solid rgb(0, 0, 0, 0.333); */
+  transition: all ease-in-out 0.6s;
+}
+
+.navMainDivScroll {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  background-color: white;
+  top: 0;
+  z-index: 3;
   /* border: 1px solid black; */
+  transition: all ease-in-out 0.6s;
 }
 
 .signBtnDiv {
@@ -36,12 +55,13 @@
 }
 
 .logoDiv {
-  width: 33%;
+  width: 35%;
   /* border: 1px solid black; */
 }
 
 .logoImg {
   width: 20%;
+  transition: all ease-in-out 0.6s;
 }
 
 .logoImg:hover {
