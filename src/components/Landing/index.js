@@ -3,14 +3,16 @@ import Header from "./../Header";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "./style.css";
 import "@splidejs/splide/dist/css/splide.min.css";
+import Tilt from "react-vanilla-tilt";
 
 const Landing = () => {
   return (
     <div className="LandingMainDiv">
+      <script src="vanilla-tilt.js"></script>
       <br />
+      {/* <Tilt style={{ width: "100%", border: "none", shadow: "none" }}> */}
       <Header />
       <br />
-
       <div className="textDivLanding">
         <h1 className="titleH">لماذا قلنا تحدّث العربّيةَ؟</h1>
         <div className="headDiv">
@@ -22,7 +24,7 @@ const Landing = () => {
           <h4 className="textH">
             كما أن مشاكل وتحديات الهوية واللغة أكثر من أن تُعد أو تحصى، ولكننا
             نؤمن أن الحل لكل هذه العقبات.. يبدأ بممارسة اللغة واستحضارها
-            وإحيائها في يوم كل مواطن ومقيم.
+            وإحيائها في يوم كل مواطن و<b>مقيم</b>.
           </h4>
           <h4 className="textH">
             فبينما يصبح العالم مكررًا ويزداد تشابهًا كل يوم يحين الوقت لنبرز
@@ -31,9 +33,10 @@ const Landing = () => {
           </h4>
         </div>
       </div>
+      {/* </Tilt> */}
       <div className="podcastMainDiv">
         <br />
-        <h2>
+        <h2 className="podcastHead">
           <b>إذاعة تحدث العربية</b>
         </h2>
         <br />
@@ -151,6 +154,7 @@ const Landing = () => {
       </div>
       <br />
       <h2>Landing</h2>
+      <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />
     </div>
   );
 };
