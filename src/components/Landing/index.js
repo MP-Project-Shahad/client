@@ -1,11 +1,15 @@
-import React from 'react'
+import React from "react";
+import Header from "./../Header";
 
 const Landing = () => {
-    return (
-        <div>
-            <h2>Landing</h2>
-        </div>
-    )
-}
+  return (
+    <div className="LandingMainDiv">
+      <br />
+      <Header />
+      <br />
+      <h2>Landing</h2>
+    </div>
+  );
+};
 
-export default Landing
+export default Landing;

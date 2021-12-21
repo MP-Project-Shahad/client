@@ -1,0 +1,62 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.navMainDiv {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  /* border: 1px solid black; */
+}
+
+.signBtnDiv {
+  width: 33%;
+  height: 100%;
+  display: flex;
+  align-items: flex-start;
+  /* border: 1px solid black; */
+}
+
+.signBtn {
+  height: 25px;
+  width: 80px;
+  border-radius: 20px;
+  margin-left: 20px;
+  transition: all ease-in-out 0.3s;
+}
+
+.signBtn:hover {
+  cursor: pointer;
+  color: white;
+  background-color: gray;
+}
+
+.logoDiv {
+  width: 33%;
+  /* border: 1px solid black; */
+}
+
+.logoImg {
+  width: 20%;
+}
+
+.logoImg:hover {
+  cursor: pointer;
+}
+
+.navUserDiv {
+  /* border: 1px solid black; */
+  width: 33%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: right;
+}
+
+.userIcon {
+  width: 45%;
+  margin-right: 10px;
+}
