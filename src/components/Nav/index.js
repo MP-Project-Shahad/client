@@ -17,19 +17,21 @@ const Nav = () => {
   window.addEventListener("scroll", changeColor);
 
   return (
-    <div className={navbar ? "navMainDivScroll" : "navMainDiv"}>
-      <div className={navbar ? "signBtnDivScroll" : "signBtnDiv"}>
-        <button className="signBtn">تسجيل الدخول</button>
+    <div className={navbar ? "navMainDivScroll" : "navMainDivNav"}>
+      <div className={navbar ? "signBtnDivScroll" : "signBtnDivNav"}>
+        <button className="signBtn" onClick={() => navigate("/Sign")}>
+          تسجيل الدخول
+        </button>
       </div>
       <div className="logoDiv">
         <img
-          className={navbar ? "logoImgScroll" : "logoImg"}
+          className={navbar ? "logoImgScroll" : "logoImgNav"}
           src="./mp-logo.png"
           alt="logo"
           onClick={() => navigate("/")}
         />
       </div>
-      <div className={navbar ? "navUserDivScroll" : "navUserDiv"}>
+      <div className={navbar ? "navUserDivScroll" : "navUserDivNav"}>
         <div className="side">
           <img
             src="https://img.icons8.com/external-bearicons-glyph-bearicons/64/000000/external-User-essential-collection-bearicons-glyph-bearicons.png"
