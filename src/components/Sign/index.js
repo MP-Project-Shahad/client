@@ -75,8 +75,9 @@ const Sign = () => {
               },
             });
           } else {
-            localStorage.setItem("user", JSON.stringify(res.data));
-            navigate("/Confirm");
+            // localStorage.setItem("user", JSON.stringify(res.data));
+            console.log(res.data._id);
+            navigate(`/Confirm/${res.data._id}`);
           }
         });
     }

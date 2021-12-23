@@ -14,7 +14,7 @@ function App() {
       <Routes>
         <Route exact path="/" element={<Landing />} />
         <Route exact path="/Sign" element={<Sign />} />
-        <Route exact path="/Confirm" element={<Confirm />} />
+        <Route exact path="/Confirm/:id" element={<Confirm />} />
         <Route exact path="/UserPage" element={<UserPage />} />
       </Routes>
     </div>
