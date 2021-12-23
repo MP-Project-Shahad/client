@@ -59,7 +59,7 @@ const Landing = () => {
         <div className={navbar ? "navUserDivScroll" : "navUserDiv"}>
           <div className="side">
             <img
-              src="https://img.icons8.com/external-bearicons-glyph-bearicons/64/000000/external-User-essential-collection-bearicons-glyph-bearicons.png"
+              src={state.signIn.user.avatar}
               className="userIcon"
               alt="sideicon"
               onClick={() => navigate("/UserPage")}
