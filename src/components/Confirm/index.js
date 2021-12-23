@@ -29,7 +29,7 @@ const Confirm = () => {
       if (writtenCode == code) {
         const res = await axios.put(`${BASE_URL}/confirm/${id}`);
         // console.log("confirmed successfully!");
-        // navigate("/login");
+        navigate("/login");
       } else {
         Swal.fire({
           title: "رمز تحقق خاطئ، الرجاء التأكد واعادة المحاوله",

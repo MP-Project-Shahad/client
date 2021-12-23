@@ -19,7 +19,7 @@ const Nav = () => {
   return (
     <div className={navbar ? "navMainDivScroll" : "navMainDivNav"}>
       <div className={navbar ? "signBtnDivScroll" : "signBtnDivNav"}>
-        <button className="signBtn" onClick={() => navigate("/Sign")}>
+        <button className="signBtn" onClick={() => navigate("/login")}>
           تسجيل الدخول
         </button>
       </div>
