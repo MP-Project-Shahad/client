@@ -21,7 +21,7 @@ function App() {
         <Route exact path="/Confirm/:id" element={<Confirm />} />
         <Route exact path="/UserPage" element={<UserPage />} />
         <Route exact path="/ForgotPass" element={<ForgotPass />} />{" "}
-        <Route exact path="/ResetPass" element={<ResetPass />} />
+        <Route exact path="/ResetPass/:id" element={<ResetPass />} />
       </Routes>
     </div>
   );
