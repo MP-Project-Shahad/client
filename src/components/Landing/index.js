@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Header from "./../Header";
 import { useNavigate } from "react-router";
-import { Splide, SplideSlide } from "@splidejs/react-splide";
+// import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "./style.css";
 import "@splidejs/splide/dist/css/splide.min.css";
 import { logout } from "./../../reducers/login";
@@ -58,12 +58,16 @@ const Landing = () => {
         </div>
         <div className={navbar ? "navUserDivScroll" : "navUserDiv"}>
           <div className="side">
-            <img
-              src={state.signIn.user.avatar}
-              className="userIcon"
-              alt="sideicon"
-              onClick={() => navigate("/UserPage")}
-            />
+            {state.signIn.user ? (
+              <img
+                src={state.signIn.user.avatar}
+                className="userIcon"
+                alt="sideicon"
+                onClick={() => navigate("/UserPage")}
+              />
+            ) : (
+              ""
+            )}
           </div>
         </div>
       </div>

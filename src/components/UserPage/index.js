@@ -1,16 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
 // import Nav from "./../Nav";
-import { useNavigate } from "react-router";
+// import { useNavigate } from "react-router";
 import "./style.css";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 const UserPage = () => {
   // eslint-disable-next-line
   const state = useSelector((state) => {
     return state;
   });
 
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
+  // const dispatch = useDispatch();
+  // const navigate = useNavigate();
 
   return (
     <div className="userPageMainDiv">
