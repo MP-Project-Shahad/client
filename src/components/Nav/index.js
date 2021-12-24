@@ -33,16 +33,12 @@ const Nav = () => {
     <div className={navbar ? "navMainDivScroll" : "navMainDivNav"}>
       <div className={navbar ? "signBtnDivScroll" : "signBtnDivNav"}>
         {state.signIn.token ? (
-          <button className="btn" onClick={logOut}>
-            <img
-              className="comIcon"
-              src="https://img.icons8.com/fluency-systems-regular/48/000000/exit.png"
-              alt="icon"
-            />
+          <button className="signBtn" onClick={logOut}>
+            تسجيل خروج
           </button>
         ) : (
           <button className="signBtn" onClick={() => navigate("/login")}>
-            تسجيل الدخول
+            تسجيل دخول
           </button>
         )}
       </div>
@@ -57,7 +53,7 @@ const Nav = () => {
       <div className={navbar ? "navUserDivScroll" : "navUserDivNav"}>
         <div className="side">
           <img
-            src="https://img.icons8.com/external-bearicons-glyph-bearicons/64/000000/external-User-essential-collection-bearicons-glyph-bearicons.png"
+            src={state.signIn.user.avatar}
             className="userIcon"
             alt="sideicon"
             onClick={() => navigate("/UserPage")}

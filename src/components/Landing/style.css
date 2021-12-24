@@ -154,7 +154,7 @@
   display: flex;
   align-items: flex-end;
   justify-content: right;
-  margin-top: -15%;
+  margin-top: -12%;
   transition: all ease-in-out 0.3s;
 }
 
@@ -166,10 +166,19 @@
 }
 
 .userIcon {
-  width: 45%;
-  margin-right: 10px;
+  width: 12%;
+  /* margin-right: -50px; */
+  margin-top: -15px;
+  border-radius: 100%;
+  margin-right: 15px;
 }
 
 .userIcon:hover {
   cursor: pointer;
+}
+
+.side {
+  /* border: 1px solid black; */
+  display: flex;
+  justify-content: right;
 }
