@@ -169,15 +169,14 @@ const Landing = () => {
         ></div>
         <div className="miniQuizSection" id="miniQuizSection">
           <h1 dir="rtl">اختبر فصاحتك</h1>
-          
         </div>
         <div className="storeSectionDiv" id="storeSectionDiv">
           <h1>منتجات تحدث العربية</h1>
           <div class="backgroundEffect">
             <div className="productsCards" style={{ margin: "10px" }}>
-              <div className="card">
+              <div className="card" dir="rtl">
                 <a
-                  href="https://tahaddatharstore.com/products/%D9%88%D8%B3%D8%A7%D9%85-%D8%AA%D8%AD%D8%AF%D8%AB-%D8%A7%D9%84%D8%B9%D8%B1%D8%A8%D9%8A%D8%A9-%D9%85%D8%B9%D8%AF%D9%86%D9%8A-%D9%81%D8%B6%D9%8A"
+                  href="https://tahaddatharstore.com/products/%D8%AF%D9%81%D8%AA%D8%B1-%D8%B9%D8%B1%D8%A8%D9%8A"
                   target="_blank"
                 >
                   <div className="prdctImgDiv">
