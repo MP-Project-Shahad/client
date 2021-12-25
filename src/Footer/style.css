@@ -1,0 +1,25 @@
+.footerMainDiv {
+  background-image: linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.75),
+      rgba(255, 255, 255, 0.75)
+    ),
+    url("./../../public/podBg.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 90px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  border-top: 1px solid rgba(255, 255, 255, 0.75);
+}
+
+.rightsDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* border: 1px solid; */
+  font-weight: 500;
+}

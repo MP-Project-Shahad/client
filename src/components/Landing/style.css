@@ -1,8 +1,74 @@
+.landingMainDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+:root {
+  --darkest: #0d0d0d;
+  --darkNavy: #192036;
+  --deepKoamaru: #2c395d;
+  --metallicBrown: #b44919;
+  --tumbleweed: #eaa88f;
+}
+
+.aboutDiv {
+  /* border: 1px solid black; */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  margin-top: -20%;
+  z-index: 99;
+}
+
+.textPart {
+  width: 50%;
+  font-size: larger;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-right: 20px;
+  margin-top: -10px;
+}
+
+.h4Div {
+  width: 95%;
+  font-size: 18px;
+}
+
+.stampDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.stampImg {
+  width: "50px";
+  transform: "rotate(-15deg)";
+  margin-top: 5px;
+  opacity: 80%;
+}
+
+.textH4 {
+  z-index: 99;
+  padding-bottom: 10px;
+  margin-left: -10px;
+}
+
+.imgPart {
+  width: 50%;
+}
+
 .textDivLanding {
-  border-bottom: 1px solid rgb(0, 0, 0, 0.22);
+  /* border-bottom: 1px solid rgb(0, 0, 0, 0.22); */
   width: 100%;
   height: 400px;
-  /* margin-top: 15%; */
+  margin-top: 15%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -33,17 +99,23 @@
   width: 70%;
 }
 
+.providersLessonsDiv {
+  width: 90%;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 20px;
+}
+
 .podcastMainDiv {
   background-image: linear-gradient(
       0deg,
-      rgba(255, 255, 255, 0.55),
-      rgba(255, 255, 255, 0.55)
+      rgba(255, 255, 255, 0.85),
+      rgba(255, 255, 255, 0.85)
     ),
-    url("./../../../public/podBg.png");
+    url("./../../../public/header2.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 450px;
+  height: 300px;
 }
 
 .podcastDiv {
@@ -60,125 +132,34 @@
   font-size: 30px;
   /* color: white; */
 }
-/*----------------*/
 
-.navMainDiv {
-  width: 100%;
+.productsCards {
   display: flex;
-  flex-direction: row;
   justify-content: center;
   align-items: center;
-  position: fixed;
-  /* background-color: white; */
-  top: 0;
-  z-index: 3;
-  /* border: 1px solid rgb(0, 0, 0, 0.333); */
-  transition: all ease-in-out 0.6s;
 }
 
-.navMainDivScroll {
-  width: 100%;
-  height: 10%;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  position: fixed;
-  background-color: white;
-  top: 0;
-  z-index: 3;
-  /* border: 1px solid black; */
-  transition: all ease-in-out 0.6s;
-}
-
-.signBtnDiv {
-  width: 33%;
-  height: 100%;
-  display: flex;
-  align-items: flex-start;
-  margin-top: -15%;
-  transition: all ease-in-out 0.3s;
-  /* border: 1px solid black; */
-}
-
-.signBtnDivScroll {
-  width: 33%;
-  height: 100%;
-  margin-bottom: -40px;
-  display: flex;
-  align-items: flex-start;
-}
-
-.signBtn {
-  height: 25px;
-  width: 80px;
+.card {
   border-radius: 20px;
-  margin-left: 20px;
-  transition: all ease-in-out 0.3s;
-}
-
-.signBtn:hover {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  background: #fff;
+  transition: all 0.5s ease;
   cursor: pointer;
-  color: white;
-  background-color: gray;
+  user-select: none;
+  /* z-index: 10; */
+  overflow: hidden;
+  padding: 10px;
 }
 
-.logoDiv {
-  width: 35%;
-  margin-bottom: -8px;
-  /* border: 1px solid black; */
+.card a {
+  text-decoration: none;
+  color: black;
+  font-weight: 500;
 }
 
-.logoImg {
-  margin-top: 20px;
-  width: 50%;
-  transition: all ease-in-out 0.6s;
-}
-
-.logoImg:hover {
-  cursor: pointer;
-}
-
-.logoImgScroll {
-  width: 17%;
-  transition: all ease-in-out 0.6s;
-}
-
-.logoImgScroll:hover {
-  cursor: pointer;
-}
-
-.navUserDiv {
-  /* border: 1px solid black; */
-  width: 33%;
-  display: flex;
-  align-items: flex-end;
-  justify-content: right;
-  margin-top: -12%;
-  transition: all ease-in-out 0.3s;
-}
-
-.navUserDivScroll {
-  width: 33%;
-  display: flex;
-  align-items: flex-end;
-  justify-content: right;
-}
-
-.userIcon {
-  width: 12%;
-  /* margin-right: -50px; */
-  margin-top: -15px;
-  border-radius: 100%;
-  margin-right: 15px;
-}
-
-.userIcon:hover {
-  cursor: pointer;
-}
-
-.side {
-  /* border: 1px solid black; */
-  display: flex;
-  justify-content: right;
+.card:hover {
+  color: #b44919;
+  background-color: #eaeefa;
+  transform: scale(1.025);
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 5px 10px;
 }

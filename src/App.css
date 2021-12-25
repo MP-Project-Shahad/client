@@ -1,11 +1,25 @@
 .App {
   text-align: center;
   font-family: Dubai;
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 1) 35%,
+    rgba(44, 57, 93, 0.21992616626728811) 100%
+  );
 }
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+}
+
+:root {
+  --darkest: #0d0d0d;
+  --darkNavy: #192036;
+  --deepKoamaru: #2c395d;
+  --metallicBrown: #b44919;
+  --tumbleweed: #eaa88f;
 }
 
 @media (prefers-reduced-motion: no-preference) {

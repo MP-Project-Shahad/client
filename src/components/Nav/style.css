@@ -28,50 +28,59 @@
   background-color: white;
   top: 0;
   z-index: 3;
-  /* border: 1px solid black; */
-  transition: all ease-in-out 0.6s;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.111);
+  transition: all ease-in-out 0.3s;
 }
 
 .signBtnDivNav {
-  width: 33%;
+  width: 25%;
   height: 100%;
   display: flex;
+  flex-direction: column;
   align-items: flex-start;
-  margin-top: -2%;
+  margin-top: -1%;
   transition: all ease-in-out 0.3s;
-  /* border: 1px solid black; */
 }
 
 .signBtnDivScroll {
-  width: 33%;
+  width: 25%;
   height: 100%;
   display: flex;
   align-items: flex-start;
+  /* border: 1px solid black; */
 }
 
 .signBtn {
-  height: 25px;
-  width: 80px;
-  border-radius: 20px;
-  margin-left: 20px;
+  /* height: 25px; */
+  /* width: 80px; */
+  /* border-radius: 20px; */
+  /* margin-left: 20px; */
   transition: all ease-in-out 0.3s;
+  /* border: 1px black solid; */
 }
 
 .signBtn:hover {
   cursor: pointer;
-  color: white;
-  background-color: gray;
+  color: #2c395d;
+  text-decoration: underline;
+  /* background-color: gray; */
 }
 
 .logoDiv {
-  width: 35%;
+  width: 8%;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: right;
+  /* height: 100%; */
   /* border: 1px solid black; */
 }
 
 .logoImgNav {
-  /* margin-top: 20px; */
-  width: 20%;
+  /* margin-right: 10px; */
+  width: 100%;
   transition: all ease-in-out 0.6s;
+  /* border: 1px solid black; */
 }
 
 .logoImg:hover {
@@ -79,32 +88,57 @@
 }
 
 .logoImgScroll {
-  width: 20%;
+  width: 80%;
   transition: all ease-in-out 0.6s;
+  /* margin-right: 10px; */
+  /* border: 1px solid black; */
 }
 
 .logoImgScroll:hover {
   cursor: pointer;
 }
 
-.navUserDivNav {
+.navDivNav {
   /* border: 1px solid black; */
-  width: 33%;
+  width: 66%;
   display: flex;
-  align-items: flex-end;
-  justify-content: right;
-  margin-top: -1%;
+  align-items: center;
+  justify-content: center;
+  margin-left: -1%;
+  padding-right: 6%;
   transition: all ease-in-out 0.3s;
 }
 
-.navUserDivScroll {
-  width: 33%;
+.navDivScroll {
+  width: 66%;
   display: flex;
-  align-items: flex-end;
-  justify-content: right;
+  /* border: 1px solid black; */
+}
+
+.navTag {
+  transition: all ease-in-out 0.3s;
+}
+
+.navTag a {
+  margin-left: 55px;
+  text-decoration: none;
+  color: black;
+  font-weight: 600;
+  font-size: 20px;
+  transition: all ease-in-out 0.3s;
+}
+
+.navTag a:hover {
+  color: #2c395d;
 }
 
 .userIcon {
-  width: 45%;
-  margin-right: 10px;
+  width: 42%;
+  border-radius: 100%;
+  margin-bottom: -10px;
+}
+
+.userIconLogged {
+  width: 12%;
+  border-radius: 100%;
 }
