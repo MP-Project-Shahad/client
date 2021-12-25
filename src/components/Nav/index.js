@@ -68,6 +68,7 @@ const Nav = () => {
           <a href="#storeSectionDiv">المتجر</a>
           <a href="#podcastMainDiv">الاذاعة</a>
           <a href="/LessonsPage">تعلم العربية</a>
+          <a href="/Discussions">صفحة المناقشة</a>
         </div>
       </div>
       <div className="logoDiv">
