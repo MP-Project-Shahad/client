@@ -5,6 +5,7 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import "./style.css";
 import "animate.css";
+import logo from "./mp-logo.png";
 
 const ResetPAss = () => {
   const id = useParams().id;
@@ -60,37 +61,48 @@ const ResetPAss = () => {
   return (
     <div>
       <div className="loginMainDiv">
-        <h1 className="loginHeadF">تغيير كلمة السر</h1>
-        <br />
-        <h3>
-          ادخل رمز التحقق المرسل على الايميل لاتمام عملية تغيير كلمة المرور
-        </h3>
-        <div className="inputsDivR">
-          <form className="forgotForm" onSubmit={passReset}>
-            <input
-              className="loginInputF"
-              required
-              name="codeInput"
-              placeholder="Enter the security code"
-              // onChange={(e) => setWrittenCode(e.target.value)}
-            />
-            <input
-              className="loginInputF"
-              required
-              name="password"
-              type="password"
-              placeholder="Enter your new password"
-              // onChange={(e) => setNewPass(e.target.value)}
-            />
-            <input
-              className="loginInputF"
-              required
-              name="password"
-              type="password"
-              placeholder="Confirm your password"
-            />
-            <input className="loginBtn" value="Reset" type="submit" />
-          </form>
+        <img
+          onClick={() => navigate("/")}
+          className="resetLogo"
+          src={logo}
+          alt="logo"
+        />
+        <div className="loginDiv">
+          <h1 className="loginHeadF" dir="rtl">
+            تغيير كلمة السر
+          </h1>
+          <h3 dir="rtl">
+            ادخل رمز التحقق المرسل على البريد الالكتروني لاتمام عملية تغيير كلمة
+            المرور
+          </h3>
+          <div className="inputsDivR">
+            <form className="forgotForm" onSubmit={passReset}>
+              <input
+                className="loginInput"
+                required
+                name="codeInput"
+                placeholder="ادخل الرمز المرسل"
+                // onChange={(e) => setWrittenCode(e.target.value)}
+              />
+              <input
+                className="loginInput"
+                required
+                name="password"
+                type="password"
+                placeholder="ادخل كلمة السر الجديدة"
+                // onChange={(e) => setNewPass(e.target.value)}
+              />
+              <input
+                className="loginInput"
+                required
+                name="password"
+                type="password"
+                placeholder="اعد كتابة كلمة السر الجديدة"
+              />
+              <input className="mainBtn" value="تغيير" type="submit" />
+              <br />
+            </form>
+          </div>
         </div>
       </div>
     </div>
