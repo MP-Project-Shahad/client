@@ -9,6 +9,8 @@ import Confirm from "./components/Confirm";
 import UserPage from "./components/UserPage";
 import ForgotPass from "./components/ForgotPass";
 import ResetPass from "./components/ResetPass";
+import LessonsPage from "./components/LessonsPage";
+import Lesson from "./components/Lesson";
 
 function App() {
   return (
@@ -22,6 +24,8 @@ function App() {
         <Route exact path="/UserPage" element={<UserPage />} />
         <Route exact path="/ForgotPass" element={<ForgotPass />} />{" "}
         <Route exact path="/ResetPass/:id" element={<ResetPass />} />
+        <Route exact path="/LessonsPage" element={<LessonsPage />} />{" "}
+        <Route exact path="/Lesson/:id" element={<Lesson />} />
       </Routes>
     </div>
   );

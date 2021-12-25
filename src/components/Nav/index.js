@@ -21,7 +21,7 @@ const Nav = () => {
 
   const changeColor = () => {
     // console.log(window.scrollY);
-    if (window.scrollY > 15) {
+    if (window.scrollY > 100) {
       setNavbar(true);
     } else {
       setNavbar(false);
@@ -31,16 +31,49 @@ const Nav = () => {
 
   return (
     <div className={navbar ? "navMainDivScroll" : "navMainDivNav"}>
-      <div className={navbar ? "signBtnDivScroll" : "signBtnDivNav"}>
-        {state.signIn.token ? (
-          <button className="signBtn" onClick={logOut}>
-            تسجيل خروج
-          </button>
-        ) : (
-          <button className="signBtn" onClick={() => navigate("/login")}>
-            تسجيل دخول
-          </button>
-        )}
+      <div
+        className={navbar ? "signBtnDivScroll" : "signBtnDivNav"}
+      >
+        <div className="side">
+          {state.signIn.token ? (
+            <img
+              src={state.signIn.user.avatar}
+              className="userIconLogged"
+              alt="sideicon"
+              onClick={() => navigate("/UserPage")}
+            />
+          ) : (
+            <img
+              src="https://img.icons8.com/external-bearicons-glyph-bearicons/64/000000/external-User-essential-collection-bearicons-glyph-bearicons.png"
+              className="userIcon"
+              alt="sideicon"
+              onClick={() => navigate("/login")}
+            />
+          )}
+          <br />
+          {state.signIn.token ? (
+            <a className="signBtn" onClick={logOut}>
+              تسجيل خروج
+            </a>
+          ) : (
+            <a className="signBtn" onClick={() => navigate("/login")}>
+              تسجيل دخول
+            </a>
+          )}
+        </div>
+      </div>
+
+      <div
+        className={navbar ? "navDivScroll" : "navDivNav"}
+        dir="rtl"
+      >
+        <div className="navTag">
+          <a href="#textDivLanding">لماذا تحدث العربية؟</a>
+          <a href="#podcastMainDiv">الاذاعة</a>
+          <a href="#storeSectionDiv">المتجر</a>
+          <a href="#miniQuizSection">اختبار قصير</a>
+          <a href="/LessonsPage">تعلم العربية</a>
+        </div>
       </div>
       <div className="logoDiv">
         <img
@@ -49,16 +82,6 @@ const Nav = () => {
           alt="logo"
           onClick={() => navigate("/")}
         />
-      </div>
-      <div className={navbar ? "navUserDivScroll" : "navUserDivNav"}>
-        <div className="side">
-          <img
-            src={state.signIn.user.avatar}
-            className="userIcon"
-            alt="sideicon"
-            onClick={() => navigate("/UserPage")}
-          />
-        </div>
       </div>
     </div>
   );
