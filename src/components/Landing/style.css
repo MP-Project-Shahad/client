@@ -38,7 +38,7 @@
 }
 
 .textPart {
-  width: 50%;
+  width: 60%;
   font-size: larger;
   display: flex;
   flex-direction: column;
@@ -49,8 +49,9 @@
 }
 
 .h4Div {
-  width: 95%;
+  width: 100%;
   font-size: 18px;
+  /* border: 1px solid black; */
 }
 
 .stampDiv {

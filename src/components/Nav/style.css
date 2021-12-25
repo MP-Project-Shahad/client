@@ -72,8 +72,8 @@
   flex-direction: row;
   align-items: flex-end;
   justify-content: right;
-  /* height: 100%; */
   /* border: 1px solid black; */
+  cursor: pointer;
 }
 
 .logoImgNav {
