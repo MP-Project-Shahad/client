@@ -11,6 +11,7 @@ import ForgotPass from "./components/ForgotPass";
 import ResetPass from "./components/ResetPass";
 import LessonsPage from "./components/LessonsPage";
 import Lesson from "./components/Lesson";
+import Footer from "./Footer";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
         <Route exact path="/LessonsPage" element={<LessonsPage />} />{" "}
         <Route exact path="/Lesson/:id" element={<Lesson />} />
       </Routes>
+      <Footer />
     </div>
   );
 }
