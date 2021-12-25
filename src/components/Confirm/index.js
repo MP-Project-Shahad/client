@@ -3,6 +3,8 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import "./style.css";
+import logo from "./mp-logo.png";
 
 const Confirm = () => {
   const [code, setCode] = useState("");
@@ -28,7 +30,7 @@ const Confirm = () => {
     try {
       if (writtenCode == code) {
         const res = await axios.put(`${BASE_URL}/confirm/${id}`);
-        // console.log("confirmed successfully!");
+        console.log("confirmed successfully!");
         navigate("/login");
       } else {
         Swal.fire({
@@ -52,18 +54,30 @@ const Confirm = () => {
 
   return (
     <div className="confirmMainDiv">
-      <h2>
-        الرجاء تأكيد الحساب عن طريق كتابة الرمز المرسل على البريد الالكتروني
-      </h2>
-      <div className="inputsDiv">
-        <input
-          type="number"
-          name="code"
-          required
-          placeholder="ادخل رمز التحقق"
-          onChange={(e) => setWrittenCode(e.target.value)}
-        />
-        <button onClick={(e) => confirmation()}>تفعيل الحساب</button>
+      <img
+        onClick={() => navigate("/")}
+        className="confirmLogo"
+        src={logo}
+        alt="logo"
+      />
+      <div className="confirmDiv">
+        <h2>
+          الرجاء تأكيد الحساب عن طريق كتابة الرمز <br />
+          المرسل على البريد الالكتروني
+        </h2>
+        <div className="inputsDiv">
+          <input
+            className="loginInput"
+            type="number"
+            name="code"
+            required
+            placeholder="ادخل رمز التحقق"
+            onChange={(e) => setWrittenCode(e.target.value)}
+          />
+          <button className="mainBtn" onClick={(e) => confirmation()}>
+            تفعيل الحساب
+          </button>
+        </div>
       </div>
     </div>
   );

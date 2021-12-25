@@ -31,9 +31,7 @@ const Nav = () => {
 
   return (
     <div className={navbar ? "navMainDivScroll" : "navMainDivNav"}>
-      <div
-        className={navbar ? "signBtnDivScroll" : "signBtnDivNav"}
-      >
+      <div className={navbar ? "signBtnDivScroll" : "signBtnDivNav"}>
         <div className="side">
           {state.signIn.token ? (
             <img
@@ -63,15 +61,12 @@ const Nav = () => {
         </div>
       </div>
 
-      <div
-        className={navbar ? "navDivScroll" : "navDivNav"}
-        dir="rtl"
-      >
+      <div className={navbar ? "navDivScroll" : "navDivNav"} dir="rtl">
         <div className="navTag">
           <a href="#textDivLanding">لماذا تحدث العربية؟</a>
-          <a href="#podcastMainDiv">الاذاعة</a>
-          <a href="#storeSectionDiv">المتجر</a>
           <a href="#miniQuizSection">اختبار قصير</a>
+          <a href="#storeSectionDiv">المتجر</a>
+          <a href="#podcastMainDiv">الاذاعة</a>
           <a href="/LessonsPage">تعلم العربية</a>
         </div>
       </div>

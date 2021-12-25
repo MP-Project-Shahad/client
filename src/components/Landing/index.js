@@ -42,7 +42,7 @@ const Landing = () => {
         <Header />
         <div className="aboutDiv">
           <div className="imgPart">
-            <img src="./sp.png" alt="sp" />
+            <img src="./sp.png" alt="sp" className="aboutImg" />
           </div>
           <div className="textPart" dir="rtl">
             <h1>ما المختلف؟</h1>
@@ -68,7 +68,10 @@ const Landing = () => {
           {/* <div className="enPart"></div> */}
         </div>
         <br />
+
         <div className="textDivLanding" id="textDivLanding">
+          <br />
+          <br />
           <h1 className="titleH">لماذا قلنا تحدّث العربّيةَ؟</h1>
           <div className="headDiv" dir="rtl">
             <h4 className="textH">
@@ -93,12 +96,80 @@ const Landing = () => {
             </h4>
           </div>
         </div>
-        <br />
+        <div
+          style={{
+            borderBottom: "1px solid rgb(0, 0, 0, 0.12)",
+            width: "100%",
+          }}
+        ></div>
         <div className="providersLessonsDiv">
-          <h1>Intrested in learing arabic?</h1>
-          <div className="arSection"></div>
-          <div className="imgSection"></div>
-          <div className="enSection"></div>
+          <div className="arSection">
+            <h2 dir="rtl">مهتم تتعلم عربي؟</h2>
+            <p dir="rtl">
+              {" "}
+              هل انت مقدم خدمة او تعرف مقدم خدمة اجنبي في بلد عربي؟
+              <br />
+              ودك تتعلم او تعلمه اللغة العربية؟
+              <br />
+              هنا في تحدث العربية نقدر نساعدك تتعلم ببساطة وبلا اي مقابل!
+            </p>
+            {state.signIn.token ? (
+              <>
+                <p> ابدأ الان بأخذ اختبار تحديد المستوى</p>
+                <button className="mainBtn">بدء اختبار تحديد المستوى</button>
+              </>
+            ) : (
+              <>
+                <p>سجل الان لأخذ اختبار تحديد المستوى </p>
+
+                <button
+                  className="mainBtn"
+                  onClick={() => navigate("./SignUp")}
+                >
+                  تسجيل
+                </button>
+              </>
+            )}
+          </div>
+          <div className="imgSection">
+            <img src="./splogo2.png" alt="sp" className="lessonImg" />
+          </div>
+          <div className="enSection">
+            <h2>Intrested in learning Arabic?</h2>
+            <p>
+              Are you a service provider in an Arabic country?
+              <br />
+              Intrested in learning Arabic? <br />
+              We can help you with that for FREE!
+              <br />
+            </p>
+            {state.signIn.token ? (
+              <>
+                <p> take the placement test.</p>
+                <button className="mainBtn">Take The Placement Test</button>
+              </>
+            ) : (
+              <>
+                <p> sign up now to take the placement test.</p>
+                <button
+                  className="mainBtn"
+                  onClick={() => navigate("./SignUp")}
+                >
+                  Sign Up
+                </button>
+              </>
+            )}
+          </div>
+        </div>
+        <div
+          style={{
+            borderBottom: "1px solid rgb(0, 0, 0, 0.12)",
+            width: "100%",
+          }}
+        ></div>
+        <div className="miniQuizSection" id="miniQuizSection">
+          <h1 dir="rtl">اختبر فصاحتك</h1>
+          
         </div>
         <div className="storeSectionDiv" id="storeSectionDiv">
           <h1>منتجات تحدث العربية</h1>
@@ -109,21 +180,14 @@ const Landing = () => {
                   href="https://tahaddatharstore.com/products/%D9%88%D8%B3%D8%A7%D9%85-%D8%AA%D8%AD%D8%AF%D8%AB-%D8%A7%D9%84%D8%B9%D8%B1%D8%A8%D9%8A%D8%A9-%D9%85%D8%B9%D8%AF%D9%86%D9%8A-%D9%81%D8%B6%D9%8A"
                   target="_blank"
                 >
-                  <div
-                    style={{
-                      backgroundColor: "white",
-                      width: "120%",
-                      marginLeft: "-30px",
-                      marginTop: "-10px",
-                      boxShadow: " rgba(0, 0, 0, 0.04) 0px 3px 8px",
-                    }}
-                  >
-                    <img src="./pr1.jpeg" alt="product" />
+                  <div className="prdctImgDiv">
+                    <img src="./pr1.png" alt="product" className="prdctImg" />
                   </div>
-                  <h3>وسام تحدث العربية - معدني (فضي)</h3>
-                  <h2>29 ر.س</h2>
+                  <h3>دفتر عَرَبيْ</h3>
+                  <h2>40 ر.س</h2>
                   <p style={{ color: "gray" }}>
-                    وسام فضي لامع يتوسطه شعار تحدث العربية
+                    دفتر عربي أنيق، يحمل الشعار،
+                    <br /> بني اللون وبحجم A5 وعدد أوراقه 80
                   </p>
 
                   {/* <button>شراء</button> */}
@@ -132,9 +196,7 @@ const Landing = () => {
             </div>
           </div>
         </div>
-        <div className="miniQuizSection" id="miniQuizSection">
-          <h1>mini quiz section</h1>
-        </div>
+
         <div className="podcastMainDiv" id="podcastMainDiv">
           <br />
           <h2 className="podcastHead">

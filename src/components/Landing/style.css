@@ -3,6 +3,14 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 40px;
+  /* background-image: linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.75),
+      rgba(255, 255, 255, 0.75)
+    ),
+    url("./../../../public/header2.png");
+  background-position: center; */
 }
 
 :root {
@@ -20,8 +28,13 @@
   justify-content: center;
   align-items: center;
   background-color: transparent;
-  margin-top: -20%;
-  z-index: 99;
+  margin-top: -30%;
+  z-index: 3;
+}
+
+.aboutImg {
+  width: 100%;
+  opacity: 90%;
 }
 
 .textPart {
@@ -68,7 +81,7 @@
   /* border-bottom: 1px solid rgb(0, 0, 0, 0.22); */
   width: 100%;
   height: 400px;
-  margin-top: 15%;
+  margin-top: 10%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -101,8 +114,49 @@
 
 .providersLessonsDiv {
   width: 90%;
+  height: 250px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mainBtn {
+  min-width: 70px;
+  border-radius: 20px;
+  font-weight: 500;
+  font-family: dubai;
+  background-color: white;
+  border-color: rgba(0, 0, 0, 0.178);
+  transition: all 0.3s ease;
+  margin-top: 15px;
+}
+
+.mainBtn:hover {
+  cursor: pointer;
+  color: #ffffff;
+  background-color: #2c395d;
+}
+
+.arSection {
+  width: 40%;
+  /* border: 1px solid black; */
+}
+
+.imgSection {
+  width: 25%;
+  margin-right: -15px;
+  /* border: 1px solid black; */
+}
+
+.lessonImg {
+  width: 100%;
+}
+
+.enSection {
+  width: 40%;
+  /* border: 1px solid black; */
 }
 
 .podcastMainDiv {
@@ -149,6 +203,21 @@
   /* z-index: 10; */
   overflow: hidden;
   padding: 10px;
+  width: 30%;
+}
+
+.prdctImgDiv {
+  width: 110%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: -60px;
+  margin-left: -10px;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 3px 8px;
+}
+
+.prdctImg {
+  width: 80%;
 }
 
 .card a {
@@ -158,8 +227,7 @@
 }
 
 .card:hover {
-  color: #b44919;
   background-color: #eaeefa;
-  transform: scale(1.025);
+  transform: scale(1.02);
   box-shadow: rgba(0, 0, 0, 0.24) 0px 5px 10px;
 }

@@ -97,51 +97,69 @@ const Sign = () => {
 
   return (
     <div className="signMainDiv">
-      <h1 className="signHead">التسجيل</h1>
-      <div className="inputsDiv">
-        <input
-          required
-          type="text"
-          name="userName"
-          placeholder="أدخل اسم المستخدم"
-          onChange={(e) => setUserName(e.target.value)}
-        />
-        <input
-          required
-          type="text"
-          name="email"
-          placeholder="أدخل البريد الالكتروني "
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <input
-          required
-          minLength={6}
-          type="password"
-          name="password"
-          placeholder="ادخل كلمة المرور"
-          onChange={(e) => setPassword(e.target.value)}
-        />
+      <img
+        onClick={() => navigate("/")}
+        className="signupLogo"
+        src="./mp-logo.png"
+        alt="logo"
+      />
+      <div className="loginDiv">
+        <h1 className="signHead">التسجيل</h1>
+        <div className="inputsDiv">
+          <input
+            required
+            className="loginInput"
+            type="text"
+            name="userName"
+            placeholder="أدخل اسم المستخدم"
+            onChange={(e) => setUserName(e.target.value)}
+          />
+          <input
+            required
+            type="text"
+            name="email"
+            className="loginInput"
+            placeholder="أدخل البريد الالكتروني "
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <input
+            required
+            minLength={6}
+            type="password"
+            name="password"
+            className="loginInput"
+            placeholder="ادخل كلمة المرور"
+            onChange={(e) => setPassword(e.target.value)}
+          />
 
-        <PasswordChecklist
-          rules={["minLength", "specialChar", "number", "capital", "lowercase"]}
-          minLength={6}
-          value={password}
-          onChange={(isValid) => {
-            if (!isValid) {
-              setValid(true);
-            } else {
-              setValid(false);
-            }
-          }}
-        />
-        <br />
-        <button
-          disabled={valid ? true : false}
-          id="signBtn"
-          onClick={password.length >= 6 ? signUp : invalidPass}
-        >
-          تسجيل
-        </button>
+          <PasswordChecklist
+            rules={[
+              "minLength",
+              "specialChar",
+              "number",
+              "capital",
+              "lowercase",
+            ]}
+            minLength={6}
+            value={password}
+            onChange={(isValid) => {
+              if (!isValid) {
+                setValid(true);
+              } else {
+                setValid(false);
+              }
+            }}
+          />
+          <button
+            disabled={valid ? true : false}
+            id="signBtn"
+            className="mainBtn"
+            onClick={password.length >= 6 ? signUp : invalidPass}
+          >
+            تسجيل
+          </button>
+          <br />
+        </div>
       </div>
     </div>
   );

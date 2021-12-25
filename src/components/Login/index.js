@@ -117,34 +117,47 @@ const Login = () => {
 
   return (
     <div className="loginMainDiv">
-      <h1 className="loginHead">تسجيل الدخول</h1>
-      <div className="inputsDiv">
-        <input
-          type="text"
-          required
-          className="loginInput"
-          placeholder="ادخل اسم المستخدم/الايميل"
-          onChange={(e) => setLogMethod(e.target.value)}
-        />
-        <input
-          type="password"
-          required
-          className="loginInput"
-          placeholder="ادخل كلمة المرور"
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <button className="loginBtnL" onClick={logging}>
-          تسجيل الدخول
-        </button>
-        <br />
-        <a className="forgotAnchr" href="/forgotPass">
-          هل نسيت كلمة المرور؟
-        </a>
-        <br />
-        <h4>او سجل الدخول باستخدام:</h4>
-        <button className="googleBtn" onClick={oAuth}>
-          Google+
-        </button>
+      <img
+        onClick={() => navigate("/")}
+        className="loginLogo"
+        src="./mp-logo.png"
+        alt="logo"
+      />
+      <div className="loginDiv">
+        <h1 className="loginHead">تسجيل الدخول</h1>
+        <div className="inputsDiv">
+          <input
+            type="text"
+            required
+            className="loginInput"
+            placeholder="ادخل اسم المستخدم/الايميل"
+            onChange={(e) => setLogMethod(e.target.value)}
+          />
+          <input
+            type="password"
+            required
+            className="loginInput"
+            placeholder="ادخل كلمة المرور"
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <button className="mainBtn" onClick={logging}>
+            تسجيل الدخول
+          </button>
+          <a className="forgotAnchr" href="/forgotPass">
+            هل نسيت كلمة المرور؟
+          </a>
+          <div style={{ display: "flex" }} dir="rtl">
+            <p dir="rtl"> مستخدم جديد؟</p>
+            <a dir="rtl" className="forgotAnchr" href="/signup">
+              سجل الان !
+            </a>
+          </div>
+          <h4 dir="rtl">او سجل دخول باستخدام:</h4>
+          <button className="googleBtn" onClick={oAuth}>
+            Google+
+          </button>
+          <br />
+        </div>
       </div>
     </div>
   );

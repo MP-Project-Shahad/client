@@ -1,0 +1,82 @@
+.loginMainDiv {
+  width: 100%;
+  min-height: 605px;
+  /* height: 800px; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.25),
+      rgba(255, 255, 255, 0.25)
+    ),
+    url("./../../../public/header2.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.loginLogo {
+  width: 10%;
+  margin-top: -70px;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.loginDiv {
+  width: 50%;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.62);
+}
+
+.inputsDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.loginInput {
+  font-family: dubai;
+  text-align: center;
+  width: 50%;
+  height: 30px;
+  border-radius: 20px;
+  border-color: rgba(187, 187, 187, 0.589);
+}
+
+.mainBtn {
+  width: 90px;
+}
+
+.inputsDiv a {
+  color: #2c395d;
+  transition: all 0.3s ease-in-out;
+}
+
+.inputsDiv a:hover {
+  color: #b44919;
+}
+
+.googleBtn {
+  min-width: 70px;
+  border-radius: 20px;
+  font-weight: 500;
+  font-family: dubai;
+  background-color: white;
+  border-color: rgba(0, 0, 0, 0.178);
+  transition: all 0.3s ease;
+  margin-top: 15px;
+}
+
+.googleBtn:hover {
+  cursor: pointer;
+  color: white;
+  background-color: rgb(255, 95, 95);
+}
+
+/*test -----------------*/

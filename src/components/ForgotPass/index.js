@@ -44,25 +44,33 @@ const ForgotPass = () => {
   return (
     <div>
       <div className="loginMainDiv">
-        <h1 className="loginHeadL"></h1>
-        <div className="inputsDivF">
-          <h3>
+        <img
+          onClick={() => navigate("/")}
+          className="forgotLogo"
+          src="./mp-logo.png"
+          alt="logo"
+        />
+        <div className="forgotDiv">
+          <br />
+          <h3 dir="rtl">
             رجاءً أدخل بريدك الإلكتروني. <br />
             سنرسل لك رسالة لإعادة تعيين كلمة المرور.
           </h3>
-          <br />
-          <form className="forgotForm" onSubmit={forgotEmail}>
-            <input
-              className="loginInputF"
-              required
-              type="email"
-              name="userEmail"
-              placeholder="Enter your email"
-            />
-            <input className="loginBtn" value="Send code" type="submit"  />
-          </form>
+          <div className="inputsDiv">
+            <form className="forgotForm" onSubmit={forgotEmail}>
+              <input
+                className="mailInput"
+                required
+                type="email"
+                name="userEmail"
+                placeholder="أدخل بريدك الالكتروني"
+              />
+              <input className="mainBtn" value="Send code" type="submit" />
+            </form>
+            <br />
+          </div>
         </div>
-      </div>{" "}
+      </div>
     </div>
   );
 };
