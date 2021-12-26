@@ -7,7 +7,7 @@ import { logout } from "./../../reducers/login";
 import { useDispatch, useSelector } from "react-redux";
 import Podcast from "../Podcast";
 import Nav from "./../Nav";
-import Tilt from "react-vanilla-tilt";
+import Quizes from "../Quizes";
 
 const Landing = () => {
   // eslint-disable-next-line
@@ -170,29 +170,28 @@ const Landing = () => {
         ></div>
         <div className="miniQuizSection" id="miniQuizSection">
           <h1 dir="rtl">اختبر فصاحتك</h1>
+          <Quizes quizName={"اختبر فصاحتك"} />
         </div>
         <div className="storeSectionDiv" id="storeSectionDiv">
           <h1>منتجات تحدث العربية</h1>
-          <div class="backgroundEffect">
-            <div className="productsCards" style={{ margin: "10px" }}>
-              <div className="card" dir="rtl">
-                <a
-                  href="https://tahaddatharstore.com/products/%D8%AF%D9%81%D8%AA%D8%B1-%D8%B9%D8%B1%D8%A8%D9%8A"
-                  target="_blank"
-                >
-                  <div className="prdctImgDiv">
-                    <img src="./pr1.png" alt="product" className="prdctImg" />
-                  </div>
-                  <h3>دفتر عَرَبيْ</h3>
-                  <h2>40 ر.س</h2>
-                  <p style={{ color: "gray" }}>
-                    دفتر عربي أنيق، يحمل الشعار،
-                    <br /> بني اللون وبحجم A5 وعدد أوراقه 80
-                  </p>
+          <div className="productsCards" style={{ margin: "10px" }}>
+            <div className="card" dir="rtl">
+              <a
+                href="https://tahaddatharstore.com/products/%D8%AF%D9%81%D8%AA%D8%B1-%D8%B9%D8%B1%D8%A8%D9%8A"
+                target="_blank"
+              >
+                <div className="prdctImgDiv">
+                  <img src="./pr1.png" alt="product" className="prdctImg" />
+                </div>
+                <h3>دفتر عَرَبيْ</h3>
+                <h2>40 ر.س</h2>
+                <p style={{ color: "gray" }}>
+                  دفتر عربي أنيق، يحمل الشعار،
+                  <br /> بني اللون وبحجم A5 وعدد أوراقه 80
+                </p>
 
-                  {/* <button>شراء</button> */}
-                </a>
-              </div>
+                {/* <button>شراء</button> */}
+              </a>
             </div>
           </div>
         </div>
