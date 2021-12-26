@@ -21,7 +21,7 @@ const Nav = () => {
 
   const changeColor = () => {
     // console.log(window.scrollY);
-    if (window.scrollY > 100) {
+    if (window.scrollY > 1) {
       setNavbar(true);
     } else {
       setNavbar(false);
@@ -34,22 +34,37 @@ const Nav = () => {
       <div className={navbar ? "signBtnDivScroll" : "signBtnDivNav"}>
         <div className="side">
           {state.signIn.token ? (
-            <img
-              src={state.signIn.user.avatar}
-              className="userIconLogged"
-              alt="sideicon"
-              onClick={() => navigate("/UserPage")}
-            />
+            <div className="loggedDiv">
+              <img
+                src={state.signIn.user.avatar}
+                className="userIconLogged"
+                alt="sideicon"
+                // style={{ border: "1px solid" }}
+                onClick={() => navigate("/UserPage")}
+              />
+              <a
+                // style={{ border: "1px solid" }}
+                className="signBtn"
+                onClick={logOut}
+              >
+                تسجيل خروج
+              </a>
+            </div>
           ) : (
-            <img
-              src="https://img.icons8.com/external-bearicons-glyph-bearicons/64/000000/external-User-essential-collection-bearicons-glyph-bearicons.png"
-              className="userIcon"
-              alt="sideicon"
-              onClick={() => navigate("/login")}
-            />
+            <div className="geustDiv">
+              <img
+                src="https://img.icons8.com/external-bearicons-glyph-bearicons/64/000000/external-User-essential-collection-bearicons-glyph-bearicons.png"
+                className="userIcon"
+                alt="sideicon"
+                onClick={() => navigate("/login")}
+              />
+              <a className="signBtn" onClick={() => navigate("/login")}>
+                تسجيل دخول
+              </a>
+            </div>
           )}
           <br />
-          {state.signIn.token ? (
+          {/* {state.signIn.token ? (
             <a className="signBtn" onClick={logOut}>
               تسجيل خروج
             </a>
@@ -57,7 +72,7 @@ const Nav = () => {
             <a className="signBtn" onClick={() => navigate("/login")}>
               تسجيل دخول
             </a>
-          )}
+          )} */}
         </div>
       </div>
 

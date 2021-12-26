@@ -1,7 +1,16 @@
+:root {
+  --darkest: #0d0d0d;
+  --darkNavy: #192036;
+  --deepKoamaru: #2c395d;
+  --metallicBrown: #b44919;
+  --tumbleweed: #eaa88f;
+}
+
 .discMainDiv {
   width: 100%;
   min-height: 605px;
   /* height: 800px; */
+  margin-top: 8%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -12,7 +21,67 @@
       rgba(255, 255, 255, 0.25)
     ),
     url("./../../../public/header2.png");
-  background-position: center;
+  /* background-position: center; */
   background-repeat: no-repeat;
-  background-size: cover;
+  /* background-size: cover; */
 }
+
+.custom-file-input::-webkit-file-upload-button {
+  visibility: hidden;
+}
+.custom-file-input::before {
+  content: "رفع صورة";
+  display: inline-block;
+  background: linear-gradient(top, #797979, #3b3b3b);
+  border: 1px solid rgb(0, 0, 0);
+  border-radius: 3px;
+  padding: 5px 8px;
+  outline: none;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  cursor: pointer;
+  font-size: 10pt;
+  font-family: dubai;
+  transition: all 0.3s ease;
+}
+
+.custom-file-input:hover::before {
+  border-color: black;
+  background-color: #2c395d;
+  color: white;
+}
+
+.custom-file-input:active::before {
+  background: -webkit-linear-gradient(top, #192036, #29314b);
+}
+/* 
+.uploadBtn {
+  content: "رفع ";
+  display: inline-block;
+  background: linear-gradient(top, #ffffff, #ffffff);
+  background-color: transparent;
+  border: 1px solid rgb(0, 0, 0);
+  border-radius: 3px;
+  padding: 5px 8px;
+  outline: none;
+  white-space: nowrap;
+  cursor: pointer;
+  width: 50px;
+  height: 30px;
+  font-size: 10pt;
+  font-family: dubai;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+  margin-left: 10px;
+  text-align: center;
+}
+
+.uploadBtn:hover {
+  border-color: black;
+  background-color: #2c395d;
+  color: white;
+}
+
+.uploadBtn:active {
+  background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+} */
