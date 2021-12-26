@@ -12,7 +12,7 @@ const Quizes = ({ quizName }) => {
 
   const getQuiz = async () => {
     let res = await axios.get(`${BASE_URL}/getqs/${quizName}`);
-    console.log(res.data);
+    // console.log(res.data);
     setQuestions(res.data);
   };
 
@@ -49,25 +49,25 @@ const Quizes = ({ quizName }) => {
               <div className="scoreComment">
                 {score > 3 ? (
                   <div>
-                    <p>ابهرتني صرحة</p>
+                    <p> ابهرتنا صراحة 👌🏻</p>
                   </div>
                 ) : (
                   <div>
                     {score > 2 ? (
                       <div>
-                        <p>لا وضعك تمام</p>
+                        <p> لا زين وضعك تمام 👍🏼</p>
                       </div>
                     ) : (
                       <div>
                         {score > 1 ? (
                           <div>
-                            <p>طور من نفسك</p>
+                            <p>نص ونص تحتاج شوي تطوير 🤏🏻</p>
                           </div>
                         ) : (
                           <div>
                             {score > 0 ? (
                               <div>
-                                <p>1؟ يالظالم؟ ادرس ادرس </p>
+                                <p>افا 1؟ ماهقيتها منك حاول تدرس </p>
                               </div>
                             ) : (
                               <div>
