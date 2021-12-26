@@ -169,7 +169,13 @@ const Discussion = () => {
           posts.reverse().map((post) => {
             return (
               <div className="postsMainDiv" key={post._id + 11}>
-                <div className="postDiv" key={post._id + 10}>
+                <div
+                  className="postDiv"
+                  key={post._id + 10}
+                  style={{
+                    width: "80%",
+                  }}
+                >
                   <div className="contDiv">
                     <div className="userInfo" style={{ display: "flex" }}>
                       <img
@@ -198,7 +204,7 @@ const Discussion = () => {
                       >
                         <img
                           style={{
-                            width: "110%",
+                            width: "30%",
                             // maxWidth: "650px",
                             borderRadius: "10px",
                           }}
@@ -229,21 +235,28 @@ const Discussion = () => {
                         alt="icon"
                       />
                     </button>
-                    {post.userId._id === state.signIn.user._id ||
-                    state.signIn.user.role === "61c062111218a1d5bd184f99" ? (
+                    {state.signIn.token ? (
                       <>
-                        {state.signIn.token ? (
-                          <button
-                            className="btn"
-                            onClick={() => deletePost(post._id)}
-                            key={post._id + 8}
-                          >
-                            <img
-                              className="comIcon"
-                              src="https://img.icons8.com/fluency-systems-regular/48/000000/filled-trash.png"
-                              alt="icon"
-                            />
-                          </button>
+                        {post.userId._id === state.signIn.user._id ||
+                        state.signIn.user.role ===
+                          "61c062111218a1d5bd184f99" ? (
+                          <>
+                            {state.signIn.token ? (
+                              <button
+                                className="btn"
+                                onClick={() => deletePost(post._id)}
+                                key={post._id + 8}
+                              >
+                                <img
+                                  className="comIcon"
+                                  src="https://img.icons8.com/fluency-systems-regular/48/000000/filled-trash.png"
+                                  alt="icon"
+                                />
+                              </button>
+                            ) : (
+                              ""
+                            )}
+                          </>
                         ) : (
                           ""
                         )}

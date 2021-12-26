@@ -46,6 +46,7 @@ const Nav = () => {
                 // style={{ border: "1px solid" }}
                 className="signBtn"
                 onClick={logOut}
+                href="/"
               >
                 تسجيل خروج
               </a>
@@ -58,30 +59,20 @@ const Nav = () => {
                 alt="sideicon"
                 onClick={() => navigate("/login")}
               />
-              <a className="signBtn" onClick={() => navigate("/login")}>
+              <a href="/login" className="signBtn">
                 تسجيل دخول
               </a>
             </div>
           )}
-          <br />
-          {/* {state.signIn.token ? (
-            <a className="signBtn" onClick={logOut}>
-              تسجيل خروج
-            </a>
-          ) : (
-            <a className="signBtn" onClick={() => navigate("/login")}>
-              تسجيل دخول
-            </a>
-          )} */}
         </div>
       </div>
 
       <div className={navbar ? "navDivScroll" : "navDivNav"} dir="rtl">
         <div className="navTag">
-          <a href="#textDivLanding">لماذا تحدث العربية؟</a>
-          <a href="#miniQuizSection">اختبار قصير</a>
-          <a href="#storeSectionDiv">المتجر</a>
-          <a href="#podcastMainDiv">الاذاعة</a>
+          <a href="/#textDivLanding">لماذا تحدث العربية؟</a>
+          <a href="/#miniQuizSection">اختبار قصير</a>
+          <a href="/#storeSectionDiv">المتجر</a>
+          <a href="/#podcastMainDiv">الاذاعة</a>
           <a href="/LessonsPage">تعلم العربية</a>
           <a href="/Discussions">صفحة المناقشة</a>
         </div>
