@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Header from "./../Header";
 import { useNavigate } from "react-router";
 import "./style.css";
@@ -7,7 +7,8 @@ import { logout } from "./../../reducers/login";
 import { useDispatch, useSelector } from "react-redux";
 import Podcast from "../Podcast";
 import Nav from "./../Nav";
-import Tilt from "react-vanilla-tilt";
+import Quizes from "../Quizes";
+import axios from "axios";
 
 const Landing = () => {
   // eslint-disable-next-line
@@ -16,8 +17,11 @@ const Landing = () => {
   });
 
   const [navbar, setNavbar] = useState(false);
+  const [products, setProducts] = useState([]);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  const BASE_URL = process.env.REACT_APP_BASE_URL;
 
   const logOut = () => {
     dispatch(logout({ token: "" }));
@@ -32,6 +36,17 @@ const Landing = () => {
     }
   };
   window.addEventListener("scroll", changeColor);
+
+  //getting products
+  const getProducts = async () => {
+    let res = await axios.get(`${BASE_URL}/allContent`);
+    setProducts(res.data);
+    console.log(products);
+  };
+
+  useEffect(() => {
+    getProducts();
+  }, []);
 
   return (
     <>
@@ -97,12 +112,7 @@ const Landing = () => {
             </h4>
           </div>
         </div>
-        <div
-          style={{
-            borderBottom: "1px solid rgb(0, 0, 0, 0.12)",
-            width: "100%",
-          }}
-        ></div>
+        <div className="line"></div>
         <div className="providersLessonsDiv">
           <div className="arSection">
             <h2 dir="rtl">مهتم تتعلم عربي؟</h2>
@@ -162,38 +172,56 @@ const Landing = () => {
             )}
           </div>
         </div>
+
         <div
           style={{
             borderBottom: "1px solid rgb(0, 0, 0, 0.12)",
             width: "100%",
           }}
         ></div>
-        <div className="miniQuizSection" id="miniQuizSection">
-          <h1 dir="rtl">اختبر فصاحتك</h1>
-        </div>
-        <div className="storeSectionDiv" id="storeSectionDiv">
-          <h1>منتجات تحدث العربية</h1>
-          <div class="backgroundEffect">
-            <div className="productsCards" style={{ margin: "10px" }}>
-              <div className="card" dir="rtl">
-                <a
-                  href="https://tahaddatharstore.com/products/%D8%AF%D9%81%D8%AA%D8%B1-%D8%B9%D8%B1%D8%A8%D9%8A"
-                  target="_blank"
-                >
-                  <div className="prdctImgDiv">
-                    <img src="./pr1.png" alt="product" className="prdctImg" />
-                  </div>
-                  <h3>دفتر عَرَبيْ</h3>
-                  <h2>40 ر.س</h2>
-                  <p style={{ color: "gray" }}>
-                    دفتر عربي أنيق، يحمل الشعار،
-                    <br /> بني اللون وبحجم A5 وعدد أوراقه 80
-                  </p>
 
-                  {/* <button>شراء</button> */}
-                </a>
+        <div className="miniQuizSection" id="miniQuizSection">
+          <br />
+          <br />
+          <br />
+          <h1 dir="rtl">اختبر فصاحتك</h1>
+          <Quizes quizName={"اختبر فصاحتك"} />
+        </div>
+        <div className="line"></div>
+
+        <div className="storeSectionDiv" id="storeSectionDiv">
+          <br />
+          <br />
+          <br />
+          <h1>منتجات تحدث العربية</h1>
+          <div className="productsCards" dir="rtl">
+            {products.length > 0 ? (
+              <div className="cards">
+                {products.map((ele) => {
+                  return (
+                    <div className="card" dir="rtl" key={ele._id + 1}>
+                      <a href={ele.link} target="_blank" key={ele._id + 2}>
+                        <div className="prdctImgDiv" key={ele._id + 3}>
+                          <img
+                            src={ele.img}
+                            alt="product"
+                            className="prdctImg"
+                            key={ele._id + 4}
+                          />
+                        </div>
+                        <h3 key={ele._id + 5}>{ele.name}</h3>
+                        <h2 key={ele._id + 6}>{ele.price}</h2>
+                        <p style={{ color: "gray" }} key={ele._id + 7}>
+                          {ele.desc}
+                        </p>
+                      </a>
+                    </div>
+                  );
+                })}
               </div>
-            </div>
+            ) : (
+              <h2>يتم التحميل</h2>
+            )}
           </div>
         </div>
 

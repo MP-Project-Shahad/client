@@ -1,0 +1,25 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-shadow: none;
+}
+
+.oneDiscMainDiv {
+  width: 100%;
+  min-height: 508px;
+  /* height: 800px; */
+  margin-top: 8%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.25),
+      rgba(255, 255, 255, 0.25)
+    ),
+    url("./../../../public/header2.png");
+  /* background-position: center; */
+  background-repeat: no-repeat;
+  /* background-size: cover; */
+}
