@@ -7,6 +7,9 @@
     rgba(255, 255, 255, 1) 35%,
     rgba(44, 57, 93, 0.21992616626728811) 100%
   );
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
 }
 
 .App-logo {

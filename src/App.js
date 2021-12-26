@@ -13,6 +13,7 @@ import LessonsPage from "./components/LessonsPage";
 import Lesson from "./components/Lesson";
 import Footer from "./components/Footer";
 import Discussion from "./components/Discussion";
+import OneDiscussion from "./components/OneDiscussion";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
         <Route exact path="/LessonsPage" element={<LessonsPage />} />
         <Route exact path="/Lesson/:id" element={<Lesson />} />
         <Route exact path="/Discussions" element={<Discussion />} />
+        <Route exact path="/Discussion/:id" element={<OneDiscussion />} />
       </Routes>
       <Footer />
     </div>
