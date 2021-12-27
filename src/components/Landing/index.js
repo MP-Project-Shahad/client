@@ -83,11 +83,7 @@ const Landing = () => {
               كما أن مشاكل وتحديات الهوية واللغة أكثر من أن تُعد أو تحصى، ولكننا
               نؤمن أن الحل لكل هذه العقبات.. يبدأ بممارسة اللغة واستحضارها
               وإحيائها في يوم كل
-              <b style={{ color: "red", textDecoration: "underline" }}>
-                {" "}
-                مواطن ومقيم
-              </b>
-              .
+              <b style={{ color: "red" }}> مواطن ومقيم</b>.
             </h4>
             <h4 className="textH">
               فبينما يصبح العالم مكررًا ويزداد تشابهًا كل يوم يحين الوقت لنبرز
@@ -165,7 +161,10 @@ const Landing = () => {
                     </p>
                     <>
                       <p> ابدأ الان بأخذ اختبار تحديد المستوى</p>
-                      <button className="placmentBtn">
+                      <button
+                        className="placmentBtn"
+                        onClick={() => navigate("/PlacementTest")}
+                      >
                         بدء اختبار تحديد المستوى
                       </button>
                     </>
@@ -184,7 +183,10 @@ const Landing = () => {
                     </p>
                     <>
                       <p> take the placement test.</p>
-                      <button className="placmentBtn">
+                      <button
+                        className="placmentBtn"
+                        onClick={() => navigate("/PlacementTest")}
+                      >
                         Take The Placement Test
                       </button>
                     </>

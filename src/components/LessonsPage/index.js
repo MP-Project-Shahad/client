@@ -19,15 +19,26 @@ const LessonsPage = () => {
         <>
           {state.signIn.user.level === "didn't take the placement test yet" ? (
             <div className="testDivLessonPage">
-              <div className="arTestDiv">
+              <div className="arTestDiv" dir="rtl">
                 <h2> يجب اخذ اختبار تحديد المستوى لبدء الدروس</h2>
-                <button className="placementBtn">بدء الإختبار</button>
+                <button
+                  className="placementBtn"
+                  dir="rtl"
+                  onClick={() => navigate("/PlacementTest")}
+                >
+                  بدء الإختبار
+                </button>
               </div>
               <div className="enTestDiv">
                 <h2>
                   you have to take the placement test to start the lessons
                 </h2>
-                <button className="placementBtn">Start the test</button>
+                <button
+                  className="placementBtn"
+                  onClick={() => navigate("/PlacementTest")}
+                >
+                  Start the test
+                </button>
               </div>
             </div>
           ) : (
@@ -38,10 +49,26 @@ const LessonsPage = () => {
         </>
       ) : (
         <>
-          <h2> يجب تسجيل الدخول لاظهار هذه الصفحة</h2>
-          <button className="lessonLogBtn" onClick={() => navigate("/login")}>
-            تسجيل الدخول
-          </button>
+          <div className="testDivLessonPage">
+            <div className="arTestDiv" dir="rtl">
+              <h2 dir="rtl"> الرجاء تسجيل الدخول لبدء الدروس</h2>
+              <button
+                className="lessonLogBtn"
+                onClick={() => navigate("/login")}
+              >
+                تسجيل الدخول
+              </button>
+            </div>
+            <div className="enTestDiv">
+              <h2>Please Sign in to start the lessons</h2>
+              <button
+                className="lessonLogBtn"
+                onClick={() => navigate("/login")}
+              >
+                Sign In
+              </button>
+            </div>
+          </div>
         </>
       )}
     </div>
