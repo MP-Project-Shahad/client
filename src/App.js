@@ -15,6 +15,7 @@ import Lesson from "./components/Lesson";
 import Footer from "./components/Footer";
 import Discussion from "./components/Discussion";
 import OneDiscussion from "./components/OneDiscussion";
+import RecognitionTest from "./components/RecognitionTest";
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
         <Route exact path="/Lesson/:id" element={<Lesson />} />
         <Route exact path="/Discussions" element={<Discussion />} />
         <Route exact path="/Discussion/:id" element={<OneDiscussion />} />
+        <Route exact path="/test" element={<RecognitionTest />} />
       </Routes>
       <Footer />
     </div>

@@ -21,6 +21,7 @@
     "react-router-dom": "^6.2.1",
     "react-scripts": "5.0.0",
     "react-slideshow-image": "^3.6.0",
+    "react-speech-recognition": "^3.9.0",
     "react-vanilla-tilt": "^1.0.0",
     "redux": "^4.1.2",
     "redux-devtools-extension": "^2.13.9",

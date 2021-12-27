@@ -18,6 +18,7 @@ const Quizes = ({ quizName }) => {
 
   useEffect(() => {
     getQuiz();
+    // eslint-disable-next-line
   }, []);
 
   const handleAnswerOptionClick = (isCorrect) => {
@@ -71,7 +72,7 @@ const Quizes = ({ quizName }) => {
                               </div>
                             ) : (
                               <div>
-                                <h2>امسك يا فاشل تحتاجة </h2>
+                                <h2>امسك يا فاشل تحتاجه </h2>
                                 <img
                                   alt="book"
                                   src="https://i.ytimg.com/vi/J61k9xaZM0I/mqdefault.jpg"
