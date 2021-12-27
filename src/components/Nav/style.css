@@ -144,6 +144,7 @@
   margin-left: 25px;
   margin-top: 10%;
   border-radius: 100%;
+  /* border: 1px solid; */
 }
 
 .loggedDiv {
@@ -151,7 +152,7 @@
   flex-direction: column;
   justify-content: flex-start;
   /* border: 1px solid; */
-  margin-bottom: -20px;
+  margin-top: -8px;
 }
 
 .geustDiv {
