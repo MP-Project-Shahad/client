@@ -21,7 +21,11 @@ const LessonsPage = () => {
             <div className="testDivLessonPage">
               <div className="arTestDiv" dir="rtl">
                 <h2> يجب اخذ اختبار تحديد المستوى لبدء الدروس</h2>
-                <button className="placementBtn" dir="rtl">
+                <button
+                  className="placementBtn"
+                  dir="rtl"
+                  onClick={() => navigate("/PlacementTest")}
+                >
                   بدء الإختبار
                 </button>
               </div>
@@ -29,7 +33,12 @@ const LessonsPage = () => {
                 <h2>
                   you have to take the placement test to start the lessons
                 </h2>
-                <button className="placementBtn">Start the test</button>
+                <button
+                  className="placementBtn"
+                  onClick={() => navigate("/PlacementTest")}
+                >
+                  Start the test
+                </button>
               </div>
             </div>
           ) : (

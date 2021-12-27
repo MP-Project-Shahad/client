@@ -165,7 +165,10 @@ const Landing = () => {
                     </p>
                     <>
                       <p> ابدأ الان بأخذ اختبار تحديد المستوى</p>
-                      <button className="placmentBtn">
+                      <button
+                        className="placmentBtn"
+                        onClick={() => navigate("/PlacementTest")}
+                      >
                         بدء اختبار تحديد المستوى
                       </button>
                     </>
@@ -184,7 +187,10 @@ const Landing = () => {
                     </p>
                     <>
                       <p> take the placement test.</p>
-                      <button className="placmentBtn">
+                      <button
+                        className="placmentBtn"
+                        onClick={() => navigate("/PlacementTest")}
+                      >
                         Take The Placement Test
                       </button>
                     </>

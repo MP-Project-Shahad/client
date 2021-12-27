@@ -10,6 +10,7 @@ import UserPage from "./components/UserPage";
 import ForgotPass from "./components/ForgotPass";
 import ResetPass from "./components/ResetPass";
 import LessonsPage from "./components/LessonsPage";
+import PlacementTest from "./components/PlacementTest";
 import Lesson from "./components/Lesson";
 import Footer from "./components/Footer";
 import Discussion from "./components/Discussion";
@@ -28,6 +29,7 @@ function App() {
         <Route exact path="/ForgotPass" element={<ForgotPass />} />
         <Route exact path="/ResetPass/:id" element={<ResetPass />} />
         <Route exact path="/LessonsPage" element={<LessonsPage />} />
+        <Route exact path="/PlacementTest" element={<PlacementTest />} />
         <Route exact path="/Lesson/:id" element={<Lesson />} />
         <Route exact path="/Discussions" element={<Discussion />} />
         <Route exact path="/Discussion/:id" element={<OneDiscussion />} />
