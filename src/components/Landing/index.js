@@ -3,8 +3,7 @@ import Header from "./../Header";
 import { useNavigate } from "react-router";
 import "./style.css";
 import "@splidejs/splide/dist/css/splide.min.css";
-import { logout } from "./../../reducers/login";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import Podcast from "../Podcast";
 import Nav from "./../Nav";
 import Quizes from "../Quizes";
@@ -16,26 +15,10 @@ const Landing = () => {
     return state;
   });
 
-  const [navbar, setNavbar] = useState(false);
   const [products, setProducts] = useState([]);
-  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const BASE_URL = process.env.REACT_APP_BASE_URL;
-
-  const logOut = () => {
-    dispatch(logout({ token: "" }));
-    navigate("/");
-  };
-
-  const changeColor = () => {
-    if (window.scrollY > 15) {
-      setNavbar(true);
-    } else {
-      setNavbar(false);
-    }
-  };
-  window.addEventListener("scroll", changeColor);
 
   //getting products
   const getProducts = async () => {
@@ -46,6 +29,7 @@ const Landing = () => {
 
   useEffect(() => {
     getProducts();
+    // eslint-disable-next-line
   }, []);
 
   return (
@@ -200,7 +184,12 @@ const Landing = () => {
                 {products.map((ele) => {
                   return (
                     <div className="card" dir="rtl" key={ele._id + 1}>
-                      <a href={ele.link} target="_blank" key={ele._id + 2}>
+                      <a
+                        href={ele.link}
+                        target="_blank"
+                        key={ele._id + 2}
+                        rel="noreferrer"
+                      >
                         <div className="prdctImgDiv" key={ele._id + 3}>
                           <img
                             src={ele.img}

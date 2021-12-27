@@ -32,7 +32,7 @@
 .custom-file-input::before {
   content: "رفع صورة";
   display: inline-block;
-  background: linear-gradient(top, #797979, #3b3b3b);
+  background: linear-gradient(to bottom, #797979, #3b3b3b);
   border: 1px solid rgb(0, 0, 0);
   border-radius: 3px;
   padding: 5px 8px;
