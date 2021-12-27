@@ -1,7 +1,7 @@
 .App {
   text-align: center;
   font-family: Dubai;
-  background: rgb(255, 255, 255);
+  /* background: rgb(255, 255, 255);
   background: linear-gradient(
     180deg,
     rgba(255, 255, 255, 1) 35%,
@@ -9,7 +9,7 @@
   );
   background-repeat: no-repeat;
   background-position: center;
-  background-size: contain;
+  background-size: contain; */
 }
 
 .App-logo {
