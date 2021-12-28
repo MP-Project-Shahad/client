@@ -16,6 +16,8 @@ const Quizes = ({ quizName }) => {
     setQuestions(res.data);
   };
 
+  console.log(questions);
+
   useEffect(() => {
     getQuiz();
     // eslint-disable-next-line
