@@ -41,11 +41,37 @@ const Landing = () => {
         <Header />
         <div className="aboutDiv">
           <div className="imgPart">
+            {/* <marquee
+              behavior="slide"
+              // direction="right"
+              scrollamount="50"
+              style={{
+                width: "450px",
+                // marginRight: "25px",
+                // border: "1px solid",
+              }}
+            > */}
             <img src="./sp.png" alt="sp" className="aboutImg" />
+            {/* </marquee> */}
           </div>
-          <div className="textPart" dir="rtl">
-            <h1>ما المختلف؟ </h1>
-            <div className="h4Div">
+          <div className="textPart">
+            <marquee
+              behavior="slide"
+              direction="left"
+              scrollamount="60"
+              style={{
+                width: "500px",
+                marginRight: "-310px",
+                // border: "1px solid",
+                // display: "flex",
+                // flexDirection: "row",
+                // justifyContent: "left",
+                // alignItems: "center",
+              }}
+            >
+              <h1>ما المختلف؟ </h1>
+            </marquee>
+            <div className="h4Div" dir="rtl">
               <h4 dir="rtl">
                 دعماً لحملة تحدث العربية الشهيرة، قررنا انشاء هذا الموقع لكن . .
                 <br />
@@ -55,8 +81,9 @@ const Landing = () => {
                 هنا نقدم خدمة تعلم اللغة العربية بشكل مبسط وسريع لمقدمين الخدمات
               </h4>
             </div>
-            <div className="stampDiv">
+            <div className="stampDiv" dir="rtl">
               <h4 className="textH4">حتى يستطيعون</h4>
+
               <img
                 alt="logo"
                 src="./mp-logo-Copy.png"
@@ -68,9 +95,7 @@ const Landing = () => {
           {/* <div className="enPart"></div> */}
         </div>
         <br />
-        <div className="shadow">
-         
-        </div>
+        <div className="shadow"></div>
         <div className="textDivLanding" id="textDivLanding">
           <br />
           <br />
