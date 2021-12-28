@@ -68,7 +68,9 @@ const Landing = () => {
           {/* <div className="enPart"></div> */}
         </div>
         <br />
-
+        <div className="shadow">
+         
+        </div>
         <div className="textDivLanding" id="textDivLanding">
           <br />
           <br />
@@ -95,7 +97,6 @@ const Landing = () => {
 
         {state.signIn.token.length < 1 ? (
           <>
-            <div className="line"></div>
             <div className="providersLessonsDiv">
               <div className="arSection">
                 <h2 dir="rtl">مهتم تتعلم عربي؟</h2>
@@ -147,7 +148,7 @@ const Landing = () => {
             "didn't take the placement test yet" ? (
               <>
                 {" "}
-                <div className="line"></div>
+                {/* <div className="line"></div> */}
                 <div className="providersLessonsDiv">
                   <div className="arSection">
                     <h2 dir="rtl">مهتم تتعلم عربي؟</h2>

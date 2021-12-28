@@ -1,5 +1,5 @@
 import React from "react";
-// import Nav from "./../Nav";
+import Nav from "./../Nav";
 // import { useNavigate } from "react-router";
 import "./style.css";
 import { useSelector } from "react-redux";
@@ -14,7 +14,8 @@ const UserPage = () => {
 
   return (
     <div className="userPageMainDiv">
-      {/* <Nav /> */}
+      <Nav />
+      {/* <div className="shadow"></div> */}
       <div className="userInfoDiv">
         {state.signIn.user && (
           <div>

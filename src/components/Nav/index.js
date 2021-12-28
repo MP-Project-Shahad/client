@@ -3,6 +3,7 @@ import { useNavigate } from "react-router";
 import "./style.css";
 import { logout } from "./../../reducers/login";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 const Nav = () => {
   // eslint-disable-next-line
@@ -42,14 +43,14 @@ const Nav = () => {
                 // style={{ border: "1px solid" }}
                 onClick={() => navigate("/UserPage")}
               />
-              <a
+              <Link
                 // style={{ border: "1px solid" }}
                 className="signBtn"
                 onClick={logOut}
-                href="/"
+                to="/"
               >
                 تسجيل خروج
-              </a>
+              </Link>
             </div>
           ) : (
             <div className="geustDiv">
@@ -59,9 +60,9 @@ const Nav = () => {
                 alt="sideicon"
                 onClick={() => navigate("/login")}
               />
-              <a href="/login" className="signBtn">
+              <Link to="/login" className="signBtn">
                 تسجيل دخول
-              </a>
+              </Link>
             </div>
           )}
         </div>
@@ -73,8 +74,8 @@ const Nav = () => {
           <a href="/#miniQuizSection">اختبار قصير</a>
           <a href="/#storeSectionDiv">المتجر</a>
           <a href="/#podcastMainDiv">الاذاعة</a>
-          <a href="/LessonsPage">تعلم العربية</a>
-          <a href="/Discussions">صفحة المناقشة</a>
+          <Link to="/LessonsPage">تعلم العربية</Link>
+          <Link to="/Discussions">صفحة المناقشة</Link>
         </div>
       </div>
       <div className="logoDiv">
