@@ -8,10 +8,9 @@ import SpeechRecognition, {
 const RecoTest = () => {
   const [voiced, setVoiced] = useState([]);
   const [result, setResult] = useState("");
-  // const [counter, setCounter] = useState(0);
 
   const compare = () => {
-    let test = ["أول", "تجربة", "للاختبار."];
+    let test = ["أول", "تجربة", "للاختبار"];
     setVoiced(transcript.split(" "));
     let count = 0;
     let precent;
@@ -26,11 +25,11 @@ const RecoTest = () => {
       }
     });
     precent = (count * 100) / test.length;
-    let result = `you scored ${precent.toFixed(2)} %`;
+    let result = `you scored ${precent.toFixed(1)} %`;
     setResult(result);
-    console.log(count);
-    console.log(precent);
-    console.log(test, "test");
+    // console.log(count);
+    // console.log(precent);
+    // console.log(test, "test");
   };
 
   const {
@@ -40,40 +39,14 @@ const RecoTest = () => {
     browserSupportsSpeechRecognition,
   } = useSpeechRecognition();
 
-  // const func = () => {
-  //   let res = transcript;
-  //   setVoiced(res.split(" "));
-  // };
-
   useEffect(() => {
+    // console.log(voiced);
     compare();
   }, [transcript]);
 
   if (!browserSupportsSpeechRecognition) {
     return <span>Browser doesn't support speech recognition.</span>;
   }
-
-  // let counnt = 0;
-
-  // const startCounter = () => {
-  //   console.log("counter", counnt);
-  //   console.log(counnt, "counnt");
-  //   if (counnt < 9) {
-  //     setCounter(counter + 1);
-  //     counnt++;
-  //   }
-  //   if (counnt === 9) {
-  //     SpeechRecognition.stopListening();
-  //   }
-
-  // setCounter(counter + 1);
-
-  // counnt++;
-
-  // if (counnt === 9) {
-  //   SpeechRecognition.stopListening();
-  // }
-  // };
 
   const listenInArabic = () => {
     SpeechRecognition.startListening({
@@ -82,9 +55,6 @@ const RecoTest = () => {
     });
   };
 
-  console.log(voiced, "voiced");
-  // console.log(transcript, "transcript");
-
   return (
     <div className="PlacementMainDiv">
       <Nav />
@@ -92,8 +62,7 @@ const RecoTest = () => {
       <button
         onClick={() => {
           listenInArabic();
-          // const myInterval = setInterval(startCounter, 500);
-          // if (counter == 9) clearInterval(myInterval);
+          setTimeout(() => SpeechRecognition.stopListening(), 5000);
         }}
       >
         استمع
