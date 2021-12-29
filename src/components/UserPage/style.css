@@ -86,3 +86,15 @@
   border-radius: 20px;
   border-color: rgba(187, 187, 187, 0.589);
 }
+
+.userLevelMainDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.userPageArLevelDiv {
+  width: 40%;
+  font-size: smaller;
+}

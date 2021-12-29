@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import Nav from "./../Nav";
 // import { useNavigate } from "react-router";
 import "./style.css";
-import { login } from "../../reducers/login";
 import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
 
@@ -11,16 +10,13 @@ const UserPage = () => {
   const state = useSelector((state) => {
     return state;
   });
-  //we'll make an if statment for the state.token
-  //if theres a token we'll get one user data
-  //and use it to show his data
-  //so that we can edit and show the new names fast
 
   const [edit, setEdit] = useState(false);
   const [newName, setNewName] = useState("");
   const [newEmail, setNewEmail] = useState("");
   // const [newPass, setNewPass] = useState("");
   const [newAvatar, setNewAvatar] = useState("");
+  const [user, setUser] = useState({});
 
   useEffect(() => {
     setNewName(state.signIn.user.userName);
@@ -28,38 +24,35 @@ const UserPage = () => {
     setNewAvatar(state.signIn.user.avatar);
   }, []);
 
-  const dispatch = useDispatch();
-  // const navigate = useNavigate();
-
   const BASE_URL = process.env.REACT_APP_BASE_URL;
 
+  const getInfo = async () => {
+    if (state.signIn.token) {
+      let res = await axios.get(`${BASE_URL}/oneUser/${state.signIn.user._id}`);
+      setUser(res.data);
+      console.log(res.data, "new user");
+    }
+  };
+
   const editInfo = async () => {
-    console.log("here");
-    // console.log(state.signIn.user._id);
     let res = await axios.post(
       `${BASE_URL}/editUser/${state.signIn.user._id}`,
       { newName, newEmail }
     );
 
-    // console.log(res.data);
+    setUser(res.data);
 
-    let token = localStorage.getItem("token");
-    console.log(token);
-    let data = {
-      token: token,
-      user: res.data,
-    };
-    console.log(data);
-    dispatch(login({ data }));
-
+    console.log(user, "new  user");
     setEdit(false);
   };
+
+  useEffect(() => {
+    getInfo();
+  }, []);
 
   const editing = () => {
     setEdit(!edit);
   };
-
-  // console.log(edit);
 
   return (
     <div className="userPageMainDiv">
@@ -69,11 +62,7 @@ const UserPage = () => {
         {state.signIn.user && (
           <div>
             <div className="userPageImgDiv">
-              <img
-                className="userPageImg"
-                alt="userIcon"
-                src={state.signIn.user.avatar}
-              />
+              <img className="userPageImg" alt="userIcon" src={user.avatar} />
             </div>
 
             {edit ? (
@@ -83,14 +72,14 @@ const UserPage = () => {
                     type="text"
                     className="nameHead"
                     id="editInput"
-                    defaultValue={state.signIn.user.userName}
+                    defaultValue={user.userName}
                     onChange={(e) => setNewName(e.target.value)}
                   />
                   <input
                     type="text"
                     className="mailHead"
                     id="editInput"
-                    defaultValue={state.signIn.user.email}
+                    defaultValue={user.email}
                     onChange={(e) => setNewEmail(e.target.value)}
                   />
                   {/* <input
@@ -106,8 +95,8 @@ const UserPage = () => {
               </>
             ) : (
               <>
-                <h1 className="nameHead">@{state.signIn.user.userName}</h1>
-                <h2 className="mailHead">{state.signIn.user.email}</h2>
+                <h1 className="nameHead">@{user.userName}</h1>
+                <h2 className="mailHead">{user.email}</h2>
                 <button className="mainBtn" onClick={editing}>
                   تعديل
                 </button>
@@ -116,6 +105,22 @@ const UserPage = () => {
           </div>
         )}
         <div className="shadow"></div>
+        <div className="userLevelMainDiv">
+          <div className="userPageArLevelDiv">
+            <ul>
+              <li>
+                <b>Arabic level</b>: {user.level}
+              </li>
+            </ul>
+          </div>
+          <div className="userPageArLevelDiv">
+            <ul dir="rtl">
+              <li>
+                <b>مستوى اللغة العربية</b>: {user.arLevel}
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
   );

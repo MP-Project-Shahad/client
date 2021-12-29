@@ -133,18 +133,24 @@
 }
 
 .userIcon {
-  width: 35px;
+  object-fit: cover;
+  width: 45px;
+  height: 43px;
   margin-left: 30px;
   margin-top: 10%;
   border-radius: 100%;
+  box-shadow: 0px 0px 5px;
 }
 
 .userIconLogged {
+  object-fit: cover;
   width: 45px;
+  height: 43px;
   margin-left: 25px;
   margin-top: 10%;
   border-radius: 100%;
   cursor: pointer;
+  box-shadow: 0px 0px 5px;
   /* border: 1px solid; */
 }
 
