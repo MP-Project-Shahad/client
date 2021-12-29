@@ -25,7 +25,7 @@ const Landing = () => {
   const getProducts = async () => {
     let res = await axios.get(`${BASE_URL}/allContent`);
     setProducts(res.data);
-    console.log(products);
+    // console.log(products);
   };
 
   useEffect(() => {
@@ -283,7 +283,7 @@ const Landing = () => {
               </div>
             ) : (
               <div className="loadingDiv">
-                <div class="loader"></div>
+                <div className="loader"></div>
                 <h2 dir="rtl" className="loadHead">
                   يتم التحميل...
                 </h2>

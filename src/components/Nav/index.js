@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
 import "./style.css";
 import { logout } from "./../../reducers/login";
@@ -12,8 +12,24 @@ const Nav = () => {
   });
 
   const [navbar, setNavbar] = useState(false);
+  const [userPage, setUserPage] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  const hider = () => {
+    if (window.location.href == "http://localhost:3000/UserPage") {
+      // console.log(window.location.href, "we're here");
+      setUserPage(true);
+    } else {
+      // console.log(window.location.href, " there");
+
+      setUserPage(false);
+    }
+  };
+
+  useEffect(() => {
+    hider();
+  }, []);
 
   const logOut = () => {
     dispatch(logout({ token: "" }));
@@ -34,36 +50,42 @@ const Nav = () => {
     <div className={navbar ? "navMainDivScroll" : "navMainDivNav"}>
       <div className={navbar ? "signBtnDivScroll" : "signBtnDivNav"}>
         <div className="side">
-          {state.signIn.token ? (
-            <div className="loggedDiv">
-              <img
-                src={state.signIn.user.avatar}
-                className="userIconLogged"
-                alt="sideicon"
-                // style={{ border: "1px solid" }}
-                onClick={() => navigate("/UserPage")}
-              />
-              <Link
-                // style={{ border: "1px solid" }}
-                className="signBtn"
-                onClick={logOut}
-                to="/"
-              >
-                تسجيل خروج
-              </Link>
-            </div>
+          {userPage ? (
+            <></>
           ) : (
-            <div className="geustDiv">
-              <img
-                src="https://img.icons8.com/external-bearicons-glyph-bearicons/64/000000/external-User-essential-collection-bearicons-glyph-bearicons.png"
-                className="userIcon"
-                alt="sideicon"
-                onClick={() => navigate("/login")}
-              />
-              <Link to="/login" className="signBtn">
-                تسجيل دخول
-              </Link>
-            </div>
+            <>
+              {state.signIn.token ? (
+                <div className="loggedDiv">
+                  <img
+                    src={state.signIn.user.avatar}
+                    className="userIconLogged"
+                    alt="sideicon"
+                    // style={{ border: "1px solid" }}
+                    onClick={() => navigate("/UserPage")}
+                  />
+                  <Link
+                    // style={{ border: "1px solid" }}
+                    className="signBtn"
+                    onClick={logOut}
+                    to="/"
+                  >
+                    تسجيل خروج
+                  </Link>
+                </div>
+              ) : (
+                <div className="geustDiv">
+                  <img
+                    src="https://img.icons8.com/external-bearicons-glyph-bearicons/64/000000/external-User-essential-collection-bearicons-glyph-bearicons.png"
+                    className="userIcon"
+                    alt="sideicon"
+                    onClick={() => navigate("/login")}
+                  />
+                  <Link to="/login" className="signBtn">
+                    تسجيل دخول
+                  </Link>
+                </div>
+              )}
+            </>
           )}
         </div>
       </div>

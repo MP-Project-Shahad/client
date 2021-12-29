@@ -29,7 +29,7 @@ const signIn = (state = initialState, action) => {
 export default signIn;
 
 export const login = (data) => {
-  // console.log(data, "reducer");
+  console.log(data, "reducer");
   return {
     type: "LOGIN",
     payload: data,

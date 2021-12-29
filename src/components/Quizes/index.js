@@ -16,7 +16,7 @@ const Quizes = ({ quizName }) => {
     setQuestions(res.data);
   };
 
-  console.log(questions);
+  // console.log(questions);
 
   useEffect(() => {
     getQuiz();
@@ -103,9 +103,10 @@ const Quizes = ({ quizName }) => {
                   {questions[currentQuestion].qText}
                 </div>
               </div>
-              <div className="answer-section">
+              <div className="answer-section" key={Math.random()}>
                 {questions[currentQuestion].answers.map((answer) => (
                   <button
+                    key={Math.random()}
                     className="quizBtn"
                     onClick={() => handleAnswerOptionClick(answer.isCorrect)}
                   >
