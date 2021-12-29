@@ -8,6 +8,7 @@ import Podcast from "../Podcast";
 import Nav from "./../Nav";
 import Quizes from "../Quizes";
 import axios from "axios";
+import { useSpring, animated, config } from "react-spring";
 
 const Landing = () => {
   // eslint-disable-next-line
@@ -32,6 +33,17 @@ const Landing = () => {
     // eslint-disable-next-line
   }, []);
 
+  const [flip, set] = useState(false);
+  const props = useSpring({
+    to: { opacity: 1 },
+    from: { opacity: 0 },
+    reset: false,
+    // reverse: flip,
+    delay: 250,
+    config: config.molasses,
+    onRest: () => set(!flip),
+  });
+
   return (
     <>
       <Nav />
@@ -55,36 +67,34 @@ const Landing = () => {
             {/* </marquee> */}
           </div>
           <div className="textPart">
-            <marquee
+            {/* <marquee
               behavior="slide"
               direction="left"
               scrollamount="60"
               style={{
                 width: "500px",
                 marginRight: "-310px",
-                // border: "1px solid",
-                // display: "flex",
-                // flexDirection: "row",
-                // justifyContent: "left",
-                // alignItems: "center",
               }}
-            >
-              <h1>ما المختلف؟ </h1>
-            </marquee>
+            > */}
+            <animated.h1 style={props}>ما المختلف؟ </animated.h1>
+            {/* </marquee> */}
             <div className="h4Div" dir="rtl">
-              <h4 dir="rtl">
+              <animated.h4 style={props} dir="rtl">
                 دعماً لحملة تحدث العربية الشهيرة، قررنا انشاء هذا الموقع لكن . .
                 <br />
                 <i> ما المختلف؟ </i>
-              </h4>
-              <h4>
+              </animated.h4>
+              <animated.h4 style={props}>
                 هنا نقدم خدمة تعلم اللغة العربية بشكل مبسط وسريع لمقدمين الخدمات
-              </h4>
+              </animated.h4>
             </div>
             <div className="stampDiv" dir="rtl">
-              <h4 className="textH4">حتى يستطيعون</h4>
+              <animated.h4 style={props} className="textH4">
+                حتى يستطيعون
+              </animated.h4>
 
-              <img
+              <animated.img
+                style={props}
                 alt="logo"
                 src="./mp-logo-Copy.png"
                 className="stampImg"
@@ -272,7 +282,12 @@ const Landing = () => {
                 })}
               </div>
             ) : (
-              <h2>يتم التحميل</h2>
+              <div className="loadingDiv">
+                <div class="loader"></div>
+                <h2 dir="rtl" className="loadHead">
+                  يتم التحميل...
+                </h2>
+              </div>
             )}
           </div>
         </div>
