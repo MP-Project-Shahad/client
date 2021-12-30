@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Nav from "../Nav";
 import "./style.css";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router";
+import axios from "axios";
 
 const LessonsPage = () => {
   const state = useSelector((state) => {
@@ -10,6 +11,22 @@ const LessonsPage = () => {
   });
 
   const navigate = useNavigate();
+  const [lessons, setLessons] = useState([]);
+
+  const BASE_URL = process.env.REACT_APP_BASE_URL;
+
+  const getLessons = async () => {
+    let level = state.signIn.user.level;
+    let res = await axios.get(`${BASE_URL}/alllessons/${level}`);
+
+    setLessons(res.data);
+  };
+
+  console.log(lessons);
+
+  useEffect(() => {
+    getLessons();
+  }, []);
 
   return (
     <div className="LessonsPageMainDiv">
@@ -43,7 +60,96 @@ const LessonsPage = () => {
             </div>
           ) : (
             <>
-              <h2>دروس المستوى المحدد للمستخدم</h2>
+              {state.signIn.user.level == "level 1" ? (
+                <>
+                  <div className="mainLevelLessonsDiv">
+                    <h1>Level 1</h1>
+                    <div className="classesContentCards">
+                      {lessons.length > 0 ? (
+                        <div>
+                          {lessons.map((ele) => {
+                            return (
+                              <div className="lessonCard">
+                                <h1>{ele.name}</h1>
+                                ghfcdgdfxcd
+                              </div>
+                            );
+                          })}
+                        </div>
+                      ) : (
+                        <>
+                          <p>لا يوجد دروس بعد</p>
+                        </>
+                      )}
+                    </div>
+                  </div>
+                </>
+              ) : (
+                <>
+                  {state.signIn.user.level == "level 2" ? (
+                    <>
+                      <div className="mainLevelLessonsDiv">
+                        <h1>Level 2</h1>
+                        <div className="classesContentCards">
+                          {lessons.length > 0 ? (
+                            <div>
+                              {lessons.map((ele) => {
+                                return (
+                                  <div className="lessonCard">
+                                    <h1>{ele.name}</h1>
+                                    ghfcdgdfxcd
+                                  </div>
+                                );
+                              })}
+                            </div>
+                          ) : (
+                            <>
+                              <p>لا يوجد دروس بعد</p>
+                            </>
+                          )}
+                        </div>
+                      </div>
+                    </>
+                  ) : (
+                    <>
+                      <div className="mainLevelLessonsDiv">
+                        <h1>Level 3</h1>
+                        <div className="classesContentCards">
+                          {lessons.length > 0 ? (
+                            <div className="classesContentCards2">
+                              {lessons.map((ele) => {
+                                return (
+                                  <div className="lessonCard">
+                                    <h3>{ele.title}</h3>
+                                    {/* <img
+                                      className="lessonImg"
+                                      alt="lesson"
+                                      src={ele.img}
+                                    /> */}
+                                    <p>{ele.desc}</p>
+                                    <button
+                                      className="mainBtn"
+                                      onClick={() =>
+                                        navigate(`/lesson/${ele._id}`)
+                                      }
+                                    >
+                                      start Lesson
+                                    </button>
+                                  </div>
+                                );
+                              })}
+                            </div>
+                          ) : (
+                            <>
+                              <p>لا يوجد دروس بعد</p>
+                            </>
+                          )}
+                        </div>
+                      </div>
+                    </>
+                  )}
+                </>
+              )}
             </>
           )}
         </>

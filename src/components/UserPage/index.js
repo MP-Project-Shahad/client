@@ -126,10 +126,10 @@ const UserPage = () => {
           <div className="userPageArLevelDiv">
             <ul dir="rtl">
               <li>
-                <b>مستوى اللغة العربية</b>:
+                <b>مستوى اللغة العربية</b> :
                 {
                   (user.level = "didn't take the placement test yet" ? (
-                    "لم يتمم اختبار المستوى بعد"
+                    " لم يتمم اختبار المستوى بعد "
                   ) : (
                     <>
                       {
@@ -160,6 +160,7 @@ const UserPage = () => {
               <div className="shadow"></div>
               <div className="userLessonsDiv">
                 <h1>Lessons history</h1>
+                {/*here we'll have the user lesson history  */}
               </div>
             </>
           ))
