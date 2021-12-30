@@ -4,12 +4,15 @@ import Nav from "./../Nav";
 import "./style.css";
 import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
-
+import { login } from "../../reducers/login";
+import { edit_reducer } from "../../reducers/login";
 const UserPage = () => {
   // eslint-disable-next-line
   const state = useSelector((state) => {
     return state;
   });
+
+  const dispatch = useDispatch();
 
   const [edit, setEdit] = useState(false);
   const [newName, setNewName] = useState("");
@@ -39,10 +42,17 @@ const UserPage = () => {
       `${BASE_URL}/editUser/${state.signIn.user._id}`,
       { newName, newEmail }
     );
-
+    // console.log(res.data, "RES DATA");
+    // let token = localStorage.getItem("token");
+    // console.log(token, "TOKEN");
     setUser(res.data);
+    // let data = {
+    //   token: token,
+    //   user: res.data,
+    // };
+    // console.log(data, "DATA");
+    // dispatch(edit_reducer({ data }));
 
-    console.log(user, "new  user");
     setEdit(false);
   };
 
@@ -116,11 +126,44 @@ const UserPage = () => {
           <div className="userPageArLevelDiv">
             <ul dir="rtl">
               <li>
-                <b>مستوى اللغة العربية</b>: {user.arLevel}
+                <b>مستوى اللغة العربية</b>:
+                {
+                  (user.level = "didn't take the placement test yet" ? (
+                    "لم يتمم اختبار المستوى بعد"
+                  ) : (
+                    <>
+                      {
+                        (user.level = "level 1" ? (
+                          "المستوى 1"
+                        ) : (
+                          <>
+                            {
+                              (user.level = "level 2"
+                                ? "المستوى 2"
+                                : "المستوى 3")
+                            }
+                          </>
+                        ))
+                      }
+                    </>
+                  ))
+                }
               </li>
             </ul>
           </div>
         </div>
+        {
+          (user.level = "didn't take the placement test yet" ? (
+            <></>
+          ) : (
+            <>
+              <div className="shadow"></div>
+              <div className="userLessonsDiv">
+                <h1>Lessons history</h1>
+              </div>
+            </>
+          ))
+        }
       </div>
     </div>
   );
