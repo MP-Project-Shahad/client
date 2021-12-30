@@ -1,0 +1,24 @@
+.lessonContentMainDiv {
+  width: 100%;
+  min-height: 509px;
+  /* height: 800px; */
+  margin-top: 8%;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+  background-image: linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.55),
+      rgba(255, 255, 255, 0.55)
+    ),
+    url("./../../../public/header2.png");
+  /* background-position: center; */
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.contentH4 {
+  width: 80%;
+  font-weight: 400;
+}

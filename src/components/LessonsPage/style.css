@@ -89,3 +89,46 @@
 .enTestDiv h2 {
   width: 70%;
 }
+
+.mainLevelLessonsDiv {
+  /* border: 1px solid; */
+  width: 99%;
+  min-height: 470px;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+}
+
+.classesContentCards {
+  width: 95%;
+  /* border: 1px solid green; */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.classesContentCards2 {
+  width: 95%;
+  /* border: 1px solid green; */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.lessonCard {
+  min-width: 15%;
+  min-height: 200px;
+  border-radius: 20px;
+  box-shadow: 0px 0px 3px;
+  background-color: rgba(255, 255, 255, 0.4);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.lessonImg {
+  width: 100%;
+}
