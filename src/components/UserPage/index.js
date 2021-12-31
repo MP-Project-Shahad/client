@@ -64,6 +64,8 @@ const UserPage = () => {
     setEdit(!edit);
   };
 
+  console.log(state.signIn.user._id);
+
   return (
     <div className="userPageMainDiv">
       <Nav />
@@ -165,6 +167,15 @@ const UserPage = () => {
             </>
           ))
         }
+        {state.signIn.user.role === "61c062111218a1d5bd184f99" ? (
+          <>
+            <div className="dashBoardMainDiv">
+              <h2>Admin Dashboard</h2>
+            </div>
+          </>
+        ) : (
+          <></>
+        )}
       </div>
     </div>
   );

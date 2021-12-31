@@ -98,3 +98,8 @@
   width: 40%;
   font-size: smaller;
 }
+
+.dashBoardMainDiv {
+  min-height: 100px;
+  margin-top: 10px;
+}

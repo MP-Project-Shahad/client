@@ -39,7 +39,7 @@ const Landing = () => {
     from: { opacity: 0 },
     reset: false,
     // reverse: flip,
-    delay: 250,
+    delay: 400,
     config: config.molasses,
     onRest: () => set(!flip),
   });
@@ -235,7 +235,7 @@ const Landing = () => {
           </>
         )}
 
-        <div className="line"></div>
+        {/* <div className="line"></div> */}
 
         <div className="miniQuizSection" id="miniQuizSection">
           <br />

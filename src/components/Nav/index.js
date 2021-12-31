@@ -51,7 +51,16 @@ const Nav = () => {
       <div className={navbar ? "signBtnDivScroll" : "signBtnDivNav"}>
         <div className="side">
           {userPage ? (
-            <></>
+            <div className="loggedDiv">
+              <Link
+                // style={{ textDecoration: "none", color: "black" }}
+                className="signBtn"
+                onClick={logOut}
+                to="/"
+              >
+                تسجيل خروج
+              </Link>
+            </div>
           ) : (
             <>
               {state.signIn.token ? (
