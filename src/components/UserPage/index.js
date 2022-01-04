@@ -4,8 +4,9 @@ import Nav from "./../Nav";
 import "./style.css";
 import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
-import { login } from "../../reducers/login";
+// import { login } from "../../reducers/login";
 import { edit_reducer } from "../../reducers/login";
+import { toJSON } from "flatted";
 const UserPage = () => {
   // eslint-disable-next-line
   const state = useSelector((state) => {
@@ -21,6 +22,8 @@ const UserPage = () => {
   const [newAvatar, setNewAvatar] = useState("");
   const [user, setUser] = useState({});
 
+  // console.log(user, "usersrsrsrsr");
+  console.log(state, "shahed");
   useEffect(() => {
     setNewName(state.signIn.user.userName);
     setNewEmail(state.signIn.user.email);
@@ -33,7 +36,7 @@ const UserPage = () => {
     if (state.signIn.token) {
       let res = await axios.get(`${BASE_URL}/oneUser/${state.signIn.user._id}`);
       setUser(res.data);
-      console.log(res.data, "new user");
+      console.log(res.data, "one user");
     }
   };
 
@@ -42,18 +45,18 @@ const UserPage = () => {
       `${BASE_URL}/editUser/${state.signIn.user._id}`,
       { newName, newEmail }
     );
-    // console.log(res.data, "RES DATA");
-    // let token = localStorage.getItem("token");
-    // console.log(token, "TOKEN");
+    console.log(res.data, "RES DATA");
+    let token = localStorage.getItem("token");
+
     setUser(res.data);
-    // let data = {
-    //   token: token,
-    //   user: res.data,
-    // };
-    // console.log(data, "DATA");
-    // dispatch(edit_reducer({ data }));
+    let data = {
+      token: token,
+      newuser: res.data,
+    };
+    console.log(data, "DATA");
 
     setEdit(false);
+    dispatch(edit_reducer(data));
   };
 
   useEffect(() => {
@@ -64,7 +67,7 @@ const UserPage = () => {
     setEdit(!edit);
   };
 
-  console.log(state.signIn.user._id);
+  console.log(state.signIn);
 
   return (
     <div className="userPageMainDiv">
@@ -116,6 +119,7 @@ const UserPage = () => {
             )}
           </div>
         )}
+        <br />
         <div className="shadow"></div>
         <div className="userLevelMainDiv">
           <div className="userPageArLevelDiv">

@@ -10,7 +10,7 @@ const signIn = (state = initialState, action) => {
       const { user, token } = payload;
       console.log(payload, "LLLLLLLL");
       localStorage.setItem("token", token);
-      localStorage.setItem("user", JSON.stringify(user));
+      localStorage.setItem("info", JSON.stringify(user));
 
       return { user, token };
 
@@ -19,19 +19,41 @@ const signIn = (state = initialState, action) => {
       return payload;
 
     case "EDIT":
-      const { newUser, newToken } = payload;
-      console.log(payload.data.user, "LLLLLLLL");
-      localStorage.clear();
-      let newToken3 = payload.data.token;
-      let newUser3 = payload.data.user;
-      localStorage.setItem("token", newToken3);
-      localStorage.setItem("user", JSON.stringify(newUser3));
+      const { newuser } = payload;
+      let newPayload = {};
+      for (const key in newuser) {
+        newPayload[key] = newuser[key];
+      }
 
-      return { newUser3, newToken3 };
+      //console.log(payload, "LLLLLLLL");
+      localStorage.clear();
+      localStorage.setItem("token", payload.token);
+
+      localStorage.setItem(
+        "info",
+        JSON.stringify(
+          newuser,
+          (() => {
+            const seen = new WeakSet();
+            return (key, value) => {
+              if (typeof value == "object" && value !== null) {
+                if (seen.has(value)) {
+                  return;
+                }
+
+                seen.add(value);
+              }
+              return value;
+            };
+          })()
+        )
+      );
+
+      return { user: newuser, token: payload.token };
 
     default:
       const tokenStorage = localStorage.getItem("token");
-      const userStorage = JSON.parse(localStorage.getItem("user"));
+      const userStorage = JSON.parse(localStorage.getItem("info"));
       if (tokenStorage) return { token: tokenStorage, user: userStorage };
       else return state;
   }
@@ -40,7 +62,7 @@ const signIn = (state = initialState, action) => {
 export default signIn;
 
 export const login = (data) => {
-  console.log(data, "reduceRRRRr");
+  // console.log(data, "reduceRRRRr");
   return {
     type: "LOGIN",
     payload: data,
