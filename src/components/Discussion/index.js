@@ -143,19 +143,15 @@ const Discussion = () => {
               />
 
               <div className="uploading">
-                <label className="uploadLabel">
+                <label className="uploadLabel" id="uploadLabel">
                   <input
-                    style={{ marginLeft: "10px" }}
                     type="file"
                     name="postImg"
                     className="custom-file-input"
                     onChange={handleChange}
                   />
                 </label>
-                {/* <button className="uploadBtn" onClick={handleUpload}>
-                  رفع
-                </button> */}
-                <progress style={{ width: "12%" }} value={progress} max="100" />
+                <progress id="progress" value={progress} max="100" />
               </div>
               <button className="mainBtn" type="submit" dir="rtl">
                 إرسال
