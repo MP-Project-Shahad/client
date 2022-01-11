@@ -4,9 +4,7 @@ import Nav from "./../Nav";
 import "./style.css";
 import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
-// import { login } from "../../reducers/login";
 import { edit_reducer } from "../../reducers/login";
-import { toJSON } from "flatted";
 const UserPage = () => {
   // eslint-disable-next-line
   const state = useSelector((state) => {
@@ -18,11 +16,9 @@ const UserPage = () => {
   const [edit, setEdit] = useState(false);
   const [newName, setNewName] = useState("");
   const [newEmail, setNewEmail] = useState("");
-  // const [newPass, setNewPass] = useState("");
   const [newAvatar, setNewAvatar] = useState("");
   const [user, setUser] = useState({});
 
-  // console.log(user, "usersrsrsrsr");
   console.log(state, "shahed");
   useEffect(() => {
     setNewName(state.signIn.user.userName);
