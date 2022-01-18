@@ -6,13 +6,15 @@ import Swal from "sweetalert2";
 import "./style.css";
 import "animate.css";
 import logo from "./mp-logo.png";
+import PasswordChecklist from "react-password-checklist";
 
 const ResetPAss = () => {
   const id = useParams().id;
 
   const [code, setCode] = useState(0); //code from message
   // const [writtenCode, setWrittenCode] = useState(0); //code from user
-  // const [newPass, setNewPass] = useState("");
+  const [newPass, setNewPass] = useState("");
+  const [valid, setValid] = useState(false);
   const BASE_URL = process.env.REACT_APP_BASE_URL;
   const navigate = useNavigate();
 
@@ -90,7 +92,7 @@ const ResetPAss = () => {
                 name="password"
                 type="password"
                 placeholder="ادخل كلمة السر الجديدة"
-                // onChange={(e) => setNewPass(e.target.value)}
+                onChange={(e) => setNewPass(e.target.value)}
               />
               <input
                 className="loginInput"
@@ -98,6 +100,24 @@ const ResetPAss = () => {
                 name="password"
                 type="password"
                 placeholder="اعد كتابة كلمة السر الجديدة"
+              />
+              <PasswordChecklist
+                rules={[
+                  "minLength",
+                  "specialChar",
+                  "number",
+                  "capital",
+                  "lowercase",
+                ]}
+                minLength={6}
+                value={newPass}
+                onChange={(isValid) => {
+                  if (!isValid) {
+                    setValid(true);
+                  } else {
+                    setValid(false);
+                  }
+                }}
               />
               <input className="mainBtn" value="تغيير" type="submit" />
               <br />
