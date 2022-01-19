@@ -4,7 +4,7 @@ import "./style.css";
 import { logout } from "./../../reducers/login";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-
+import logo from "./mp-logo.png";
 const Nav = () => {
   // eslint-disable-next-line
   const state = useSelector((state) => {
@@ -123,7 +123,7 @@ const Nav = () => {
       <div className="logoDiv">
         <img
           className={navbar ? "logoImgScroll" : "logoImgNav"}
-          src="./mp-logo.png"
+          src={logo}
           alt="logo"
           onClick={() => navigate("/")}
         />

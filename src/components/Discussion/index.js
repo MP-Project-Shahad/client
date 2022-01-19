@@ -129,9 +129,92 @@ const Discussion = () => {
   return (
     <div className="discMainDiv">
       <Nav />
-      <h1 dir="rtl">صفحة المناقشة</h1>
       <div className="postsMainDiv" dir="rtl">
-        {state.signIn.token ? (
+        <div className="postsSecondMainDiv">
+          {posts &&
+            posts.reverse().map((post) => {
+              return (
+                <div className="postsMainDiv2" key={post._id + 11}>
+                  <div className="postDiv" key={post._id + 10}>
+                    <div className="contDiv">
+                      <div className="topOptDiv">
+                        <div className="userInfo">
+                          <div>
+                            <img
+                              className="userImg"
+                              src={post.userId.avatar}
+                              alt="userImg"
+                            />
+                          </div>
+                          <div>
+                            <h4 className="posterName" key={post._id + 1}>
+                              @{post.userId.userName}
+                            </h4>
+                          </div>
+                        </div>
+                        <div className="btnsDiv" key={4}>
+                          <button
+                            className="btn"
+                            key={post._id + 5}
+                            onClick={() => fullPost(post._id)}
+                          >
+                            <img
+                              className="comIcon"
+                              src="https://img.icons8.com/windows/64/000000/comment-medical.png"
+                              alt="icon"
+                            />
+                          </button>
+                          {state.signIn.token ? (
+                            <>
+                              {post.userId._id === state.signIn.user._id ||
+                              state.signIn.user.role ===
+                                "61c062111218a1d5bd184f99" ? (
+                                <>
+                                  {state.signIn.token ? (
+                                    <button
+                                      className="btn"
+                                      onClick={() => deletePost(post._id)}
+                                      key={post._id + 8}
+                                    >
+                                      <img
+                                        className="comIcon"
+                                        src="https://img.icons8.com/fluency-systems-regular/48/000000/filled-trash.png"
+                                        alt="icon"
+                                      />
+                                    </button>
+                                  ) : (
+                                    ""
+                                  )}
+                                </>
+                              ) : (
+                                ""
+                              )}
+                            </>
+                          ) : (
+                            ""
+                          )}
+                        </div>
+                      </div>
+                      <h2 className="postDesc" key={post._id + 2}>
+                        {post.desc}
+                      </h2>
+                      {post.img ? (
+                        <div className="postImgDiv">
+                          <img className="postImg" alt="post" src={post.img} />
+                        </div>
+                      ) : (
+                        ""
+                      )}
+                      <p className="timeStamp" key={post._id + 3}>
+                        {post.timeStamp}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+        </div>
+        <div className="mainUpload">
           <div className="uploadDiv">
             <form onSubmit={addPost}>
               <input
@@ -153,118 +236,22 @@ const Discussion = () => {
                 </label>
                 <progress id="progress" value={progress} max="100" />
               </div>
-              <button className="mainBtn" type="submit" dir="rtl">
-                إرسال
-              </button>
+              {state.signIn.user ? (
+                <button className="mainBtn" type="submit" dir="rtl">
+                  إرسال
+                </button>
+              ) : (
+                <button
+                  className="mainBtn"
+                  onClick={() => navigate("/login")}
+                  dir="rtl"
+                >
+                  إرسال
+                </button>
+              )}
             </form>
           </div>
-        ) : (
-          ""
-        )}
-        {posts &&
-          posts.reverse().map((post) => {
-            return (
-              <div className="postsMainDiv" key={post._id + 11}>
-                <div
-                  className="postDiv"
-                  key={post._id + 10}
-                  style={{
-                    width: "80%",
-                  }}
-                >
-                  <div className="contDiv">
-                    <div className="userInfo" style={{ display: "flex" }}>
-                      <img
-                        style={{ width: "75px", borderRadius: "100%" }}
-                        src={post.userId.avatar}
-                        alt="userImg"
-                      />
-                      <h4 className="posterName" key={post._id + 1}>
-                        @{post.userId.userName}
-                      </h4>
-                    </div>
-                    <h2 className="postDesc" key={post._id + 2}>
-                      {post.desc}
-                    </h2>
-                    {post.img ? (
-                      <div
-                        style={{
-                          margin: "30px",
-                          marginLeft: "12%",
-                          width: "100%",
-                          display: "flex",
-                          flexDirection: "column",
-                          justifyContent: "center",
-                          alignItems: "center",
-                        }}
-                      >
-                        <img
-                          style={{
-                            width: "30%",
-                            // maxWidth: "650px",
-                            borderRadius: "10px",
-                          }}
-                          alt="post"
-                          src={post.img}
-                        />
-                      </div>
-                    ) : (
-                      ""
-                    )}
-                    <p
-                      className="timeStamp"
-                      style={{ color: "grey", fontSize: "15px" }}
-                      key={post._id + 3}
-                    >
-                      {post.timeStamp}
-                    </p>
-                  </div>
-                  <div className="btnsDiv" key={4}>
-                    <button
-                      className="btn"
-                      key={post._id + 5}
-                      onClick={() => fullPost(post._id)}
-                    >
-                      <img
-                        className="comIcon"
-                        src="https://img.icons8.com/windows/64/000000/comment-medical.png"
-                        alt="icon"
-                      />
-                    </button>
-                    {state.signIn.token ? (
-                      <>
-                        {post.userId._id === state.signIn.user._id ||
-                        state.signIn.user.role ===
-                          "61c062111218a1d5bd184f99" ? (
-                          <>
-                            {state.signIn.token ? (
-                              <button
-                                className="btn"
-                                onClick={() => deletePost(post._id)}
-                                key={post._id + 8}
-                              >
-                                <img
-                                  className="comIcon"
-                                  src="https://img.icons8.com/fluency-systems-regular/48/000000/filled-trash.png"
-                                  alt="icon"
-                                />
-                              </button>
-                            ) : (
-                              ""
-                            )}
-                          </>
-                        ) : (
-                          ""
-                        )}
-                      </>
-                    ) : (
-                      ""
-                    )}
-                  </div>
-                </div>
-              </div>
-            );
-          })}
+        </div>
       </div>
     </div>
   );

@@ -70,7 +70,6 @@ const OneDiscussion = () => {
           Authorization: `Bearer ${state.signIn.token}`,
         },
       });
-      // console.log(res, "deleting");
 
       details();
     } catch (error) {
@@ -87,7 +86,6 @@ const OneDiscussion = () => {
           Authorization: `Bearer ${state.signIn.token}`,
         },
       });
-      // console.log(res, "deleting");
 
       details();
     } catch (error) {
@@ -95,12 +93,9 @@ const OneDiscussion = () => {
     }
   };
 
-  // console.log(post);
-
   return (
     <div className="oneDiscMainDiv">
       <Nav />
-      {/* <h1>OneDiscussion</h1> */}
       {post && (
         <>
           <div className="postDetailDiv">
