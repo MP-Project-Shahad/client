@@ -52,14 +52,25 @@ const Nav = () => {
         <div className="side">
           {userPage ? (
             <div className="loggedDiv">
-              <Link
-                // style={{ textDecoration: "none", color: "black" }}
-                className="signBtn"
-                onClick={logOut}
-                to="/"
-              >
-                تسجيل خروج
-              </Link>
+              {" "}
+              {state.signIn.user ? (
+                <Link
+                  // style={{ textDecoration: "none", color: "black" }}
+                  className="signBtn"
+                  onClick={logOut}
+                  to="/"
+                >
+                  تسجيل خروج
+                </Link>
+              ) : (
+                <Link
+                  // style={{ textDecoration: "none", color: "black" }}
+                  className="signBtn"
+                  to="/login"
+                >
+                  تسجيل دخول
+                </Link>
+              )}
             </div>
           ) : (
             <>

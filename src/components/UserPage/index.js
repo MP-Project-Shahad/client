@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 import "animate.css";
 import Swal from "sweetalert2";
 import PasswordChecklist from "react-password-checklist";
+import { storage } from "../../firebase";
 
 const UserPage = () => {
   // eslint-disable-next-line
@@ -37,6 +38,47 @@ const UserPage = () => {
     }
   }, []);
 
+  const [image, setImage] = useState(null);
+  const [url, setUrl] = useState("");
+  const [progress, setProgress] = useState(0);
+
+  const handleChange = (e) => {
+    console.log(typeof e.target.value);
+    if (e.target.files[0]) {
+      let file = e.target.files[0];
+      setImage(file);
+      handleUpload(file);
+    }
+  };
+  // console.log(url, "here");
+
+  const handleUpload = (img) => {
+    // e.preventDefault();
+    const uploadImg = storage.ref(`images/${img.name}`).put(img);
+
+    uploadImg.on(
+      "state_changed",
+      (snapshot) => {
+        const progress = Math.round(
+          (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+        );
+        setProgress(progress);
+      },
+      (error) => {
+        console.log(error.message, "firbase error");
+      },
+      () => {
+        storage
+          .ref("images")
+          .child(img.name)
+          .getDownloadURL()
+          .then((url) => {
+            setUrl(url);
+          });
+      }
+    );
+  };
+
   const BASE_URL = process.env.REACT_APP_BASE_URL;
 
   const getInfo = async () => {
@@ -51,7 +93,7 @@ const UserPage = () => {
   const editInfo = async () => {
     let res = await axios.post(
       `${BASE_URL}/editUser/${state.signIn.user._id}`,
-      { newName, newEmail }
+      { newName, newEmail, newAvatar: url }
     );
     console.log(res.data, "RES DATA");
     let token = localStorage.getItem("token");
@@ -64,6 +106,8 @@ const UserPage = () => {
 
     setEdit(false);
     dispatch(edit_reducer(data));
+    setImage(null);
+    setProgress(0);
   };
 
   //new password
@@ -124,7 +168,7 @@ const UserPage = () => {
     <div className="userPageMainDiv">
       <Nav />
       <div className="userInfoDiv">
-        {user.length > 0 ? (
+        {state.signIn.user ? (
           <>
             {state.signIn.user && (
               <div>
@@ -139,6 +183,15 @@ const UserPage = () => {
                 {edit ? (
                   <>
                     <div className="editDiv">
+                      <label className="uploadLabel" id="uploadLabel">
+                        <input
+                          type="file"
+                          name="postImg"
+                          className="custom-file-input"
+                          onChange={handleChange}
+                        />
+                      </label>
+                      <progress id="progress" value={progress} max="100" />
                       <input
                         type="text"
                         className="nameHead"
