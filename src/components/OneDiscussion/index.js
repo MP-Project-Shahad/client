@@ -96,176 +96,152 @@ const OneDiscussion = () => {
   return (
     <div className="oneDiscMainDiv">
       <Nav />
-      {post && (
-        <>
-          <div className="postDetailDiv">
-            <div className="userInfo" style={{ display: "flex" }}>
-              {avatar && (
-                <img
-                  style={{
-                    width: "80px",
-                    borderRadius: "100%",
-                    marginBottom: "10px",
-                  }}
-                  src={avatar}
-                  alt="userImg"
-                />
-              )}
-              {name && (
-                <h4 className="posterName" key={post._id + 1}>
-                  @{name}
-                </h4>
-              )}
-            </div>
-
-            <h2 className="name" style={{ margin: "2%", fontSize: "35px" }}>
-              {post.desc}
-            </h2>
-            {post.img ? (
-              <div
-                style={{
-                  // margin: "3%",
-                  // marginLeft: "0%",
-                  width: "100%",
-                  display: "flex",
-                  flexDirection: "column",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-              >
-                <img
-                  style={{
-                    width: "100%",
-                    // maxWidth: "650px",
-                    borderRadius: "10px",
-                  }}
-                  alt="post"
-                  src={post.img}
-                />
+      <div className="fullPostDiv">
+        {post && (
+          <>
+            <div className="postDetailDiv">
+              <div className="userInfo2">
+                <div>
+                  {name && (
+                    <h4 className="posterName" key={post._id + 1}>
+                      {name}@
+                    </h4>
+                  )}
+                </div>
+                <div>
+                  {avatar && (
+                    <img className="userImg2" src={avatar} alt="userImg" />
+                  )}
+                </div>
               </div>
-            ) : (
-              ""
-            )}
-            <p
-              className="timeStamp"
-              style={{ color: "grey", fontSize: "10px" }}
-              key={postId + 3}
-            >
-              {post.timeStamp}
-            </p>
-            <br />
-
-            <div className="btnsDivFull">
-              {state.signIn.token ? (
-                <>
-                  {id === state.signIn.user._id ||
-                  state.signIn.user.role === "61a73488b03855b1f60c356f" ? (
-                    <>
-                      <button
-                        className="btn"
-                        onClick={() => deletePost(postId)}
-                        key={postId + 8}
-                      >
-                        <img
-                          className="comIcon"
-                          src="https://img.icons8.com/fluency-systems-regular/48/000000/filled-trash.png"
-                          alt="icon"
-                        />
-                      </button>
-                    </>
-                  ) : (
-                    ""
-                  )}{" "}
-                </>
+              <h2 className="postCont">{post.desc}</h2>
+              {post.img ? (
+                <div className="fullPostImgDiv">
+                  <img className="fullPostImg" alt="post" src={post.img} />
+                </div>
               ) : (
                 ""
               )}
+              <p
+                className="timeStamp"
+                style={{ color: "grey", fontSize: "10px" }}
+                key={postId + 3}
+              >
+                {post.timeStamp}
+              </p>
+              <br />
+              <div className="btnsDivFull">
+                {state.signIn.token ? (
+                  <>
+                    {id === state.signIn.user._id ||
+                    state.signIn.user.role === "61a73488b03855b1f60c356f" ? (
+                      <>
+                        <button
+                          className="btn"
+                          onClick={() => deletePost(postId)}
+                          key={postId + 8}
+                        >
+                          <img
+                            className="comIcon"
+                            src="https://img.icons8.com/fluency-systems-regular/48/000000/filled-trash.png"
+                            alt="icon"
+                          />
+                        </button>
+                      </>
+                    ) : (
+                      ""
+                    )}{" "}
+                  </>
+                ) : (
+                  ""
+                )}
+              </div>
             </div>
-          </div>
-          {comments && (
-            <>
-              {/* <div className="comDiv"> */}
-              {comments.map((com) => {
-                return (
-                  <div className="comMainDiv" key={com._id + 1}>
-                    <h3
-                      key={com._id + 2}
-                      style={{
-                        color: "grey",
-                        fontSize: "15px",
-                        marginTop: "10px",
-                      }}
-                    >
-                      @{com.userId.userName}
-                    </h3>
-                    <h2 key={com._id + 3} style={{ marginTop: "20px" }}>
-                      {com.desc}
-                    </h2>
 
-                    <p
-                      className="timeStamp"
-                      style={{ color: "grey", fontSize: "10px" }}
-                      key={com._id + 4}
-                    >
-                      {com.timeStamp}
-                    </p>
-                    <div className="btnsDiv">
-                      {state.signIn.token ? (
-                        <>
-                          {com.userId._id === state.signIn.user._id ||
-                          state.signIn.user.role ===
-                            "61a73488b03855b1f60c356f" ? (
-                            <>
-                              <button
-                                className="btn"
-                                onClick={() => deleteCom(com._id)}
-                                key={com._id + 8}
-                              >
-                                <img
-                                  className="comIcon"
-                                  src="https://img.icons8.com/fluency-systems-regular/48/000000/filled-trash.png"
-                                  alt="icon"
-                                />
-                              </button>
-                            </>
-                          ) : (
-                            ""
-                          )}
-                        </>
-                      ) : (
-                        ""
-                      )}
-                    </div>
+            {comments && (
+              <>
+                <div className="comDiv">
+                  {comments.map((com) => {
+                    return (
+                      <div className="comMainDiv" key={com._id + 1}>
+                        <div className="topCommentDiv">
+                          <div className="btnsDiv">
+                            {state.signIn.token ? (
+                              <>
+                                {com.userId._id === state.signIn.user._id ||
+                                state.signIn.user.role ===
+                                  "61a73488b03855b1f60c356f" ? (
+                                  <>
+                                    <button
+                                      className="btn"
+                                      onClick={() => deleteCom(com._id)}
+                                      key={com._id + 8}
+                                    >
+                                      <img
+                                        className="comIcon"
+                                        src="https://img.icons8.com/fluency-systems-regular/48/000000/filled-trash.png"
+                                        alt="icon"
+                                      />
+                                    </button>
+                                  </>
+                                ) : (
+                                  ""
+                                )}
+                              </>
+                            ) : (
+                              ""
+                            )}
+                          </div>
+                          <div className="userInfo2">
+                            <h3 className="commenterName" key={com._id + 2}>
+                              {com.userId.userName}@
+                            </h3>
+                            <img
+                              className="userImg3"
+                              src={com.userId.avatar}
+                              alt="commenterImg"
+                            />
+                          </div>
+                        </div>
+                        <h2 className="commentTxt" key={com._id + 3}>
+                          {com.desc}
+                        </h2>
+
+                        <p className="timeStamp" key={com._id + 4}>
+                          {com.timeStamp}
+                        </p>
+                      </div>
+                    );
+                  })}
+                  <div className="addComDiv">
+                    {state.signIn.token ? (
+                      <>
+                        <form onSubmit={comment} className="comForm">
+                          <input
+                            required
+                            type="text"
+                            name="comment"
+                            className="comInput"
+                            placeholder="Write your comment"
+                          />
+                          <button className="sendComBtn" type="submit">
+                            {/* <img
+                              className="comIcon"
+                              src="https://img.icons8.com/external-flatart-icons-outline-flatarticons/64/000000/external-send-instagram-flatart-icons-outline-flatarticons.png"
+                              alt="icon"
+                            /> */}
+                            إرسال
+                          </button>
+                        </form>
+                      </>
+                    ) : (
+                      ""
+                    )}
                   </div>
-                );
-              })}
-              {/* </div> */}
-            </>
-          )}
-        </>
-      )}
-      <div className="addComDiv">
-        {state.signIn.token ? (
-          <>
-            <form onSubmit={comment}>
-              <input
-                required
-                type="text"
-                name="comment"
-                className="comInput"
-                placeholder="Write your comment"
-              />
-              <button className="sendComBtn" type="submit">
-                <img
-                  className="comIcon"
-                  src="https://img.icons8.com/external-flatart-icons-outline-flatarticons/64/000000/external-send-instagram-flatart-icons-outline-flatarticons.png"
-                  alt="icon"
-                />
-              </button>
-            </form>
+                </div>
+              </>
+            )}
           </>
-        ) : (
-          ""
         )}
       </div>
     </div>

@@ -55,7 +55,8 @@
 
 .userPageImg {
   object-fit: cover;
-  width: 260px;
+  width: 40vh;
+  height: 40vh;
   min-height: 40vh;
   min-width: 40vh;
   margin-top: 1vh;
@@ -190,7 +191,7 @@
   background-color: white;
   border-color: rgba(0, 0, 0, 0.178);
   transition: all 0.3s ease;
-  margin-top: 1.5%;
+  margin-top: 2.2vh;
   /* margin-left: 1.5%; */
 }
 

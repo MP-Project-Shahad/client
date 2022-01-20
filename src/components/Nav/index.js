@@ -79,7 +79,7 @@ const Nav = () => {
                   <img
                     src={state.signIn.user.avatar}
                     className="userIconLogged"
-                    alt="sideicon"
+                    alt="userImg"
                     // style={{ border: "1px solid" }}
                     onClick={() => navigate("/UserPage")}
                   />

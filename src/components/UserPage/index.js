@@ -39,7 +39,7 @@ const UserPage = () => {
   }, []);
 
   const [image, setImage] = useState(null);
-  const [url, setUrl] = useState("");
+  const [url, setUrl] = useState(state.signIn.user.avatar);
   const [progress, setProgress] = useState(0);
 
   const handleChange = (e) => {
@@ -175,7 +175,7 @@ const UserPage = () => {
                 <div className="userPageImgDiv">
                   <img
                     className="userPageImg"
-                    alt="userIcon"
+                    alt="userImg"
                     src={user.avatar}
                   />
                 </div>
@@ -255,7 +255,7 @@ const UserPage = () => {
                     ) : (
                       <>
                         {" "}
-                        <h1 className="nameHead">@{user.userName}</h1>
+                        <h1 className="nameHead">{user.userName}@</h1>
                         <h2 className="mailHead">{user.email}</h2>
                         <div className="btnsDiv">
                           <button className="mainBtn" onClick={editing}>
