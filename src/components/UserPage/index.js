@@ -277,7 +277,7 @@ const UserPage = () => {
               <div className="userPageArLevelDiv">
                 <ul>
                   <li>
-                    <b>Arabic level</b>: {user.level}
+                    <b>Arabic level</b>: {state.signIn.user.level}
                   </li>
                 </ul>
               </div>

@@ -34,7 +34,7 @@ const LessonsPage = () => {
 
       {state.signIn.token ? (
         <>
-          {state.signIn.user.level === "didn't take the placement test yet" ? (
+          {state.signIn.user.level === "no placement test " ? (
             <div className="testDivLessonPage">
               <div className="arTestDiv" dir="rtl">
                 <h2> يجب اخذ اختبار تحديد المستوى لبدء الدروس</h2>
@@ -60,7 +60,7 @@ const LessonsPage = () => {
             </div>
           ) : (
             <>
-              {state.signIn.user.level == "level 1" ? (
+              {state.signIn.user.level === "level 1" ? (
                 <>
                   <div className="mainLevelLessonsDiv">
                     <h1>Level 1</h1>
@@ -86,7 +86,7 @@ const LessonsPage = () => {
                 </>
               ) : (
                 <>
-                  {state.signIn.user.level == "level 2" ? (
+                  {state.signIn.user.level === "level 2" ? (
                     <>
                       <div className="mainLevelLessonsDiv">
                         <h1>Level 2</h1>
@@ -121,11 +121,6 @@ const LessonsPage = () => {
                                 return (
                                   <div className="lessonCard">
                                     <h3>{ele.title}</h3>
-                                    {/* <img
-                                      className="lessonImg"
-                                      alt="lesson"
-                                      src={ele.img}
-                                    /> */}
                                     <p>{ele.desc}</p>
                                     <button
                                       className="mainBtn"

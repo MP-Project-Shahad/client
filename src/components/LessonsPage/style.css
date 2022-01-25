@@ -118,15 +118,31 @@
 }
 
 .lessonCard {
-  min-width: 15%;
-  min-height: 200px;
-  border-radius: 20px;
-  box-shadow: 0px 0px 3px;
-  background-color: rgba(255, 255, 255, 0.4);
+  width: 24%;
+  height: 60vh;
+  border-radius: 5px;
+  box-shadow: 0px 0px 3px gray;
+  /* background-color: rgba(255, 255, 255, 0.4); */
+  background-image: linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.95),
+      rgba(255, 255, 255, 0.95)
+    ),
+    url("https://firebasestorage.googleapis.com/v0/b/project-2-4f59d.appspot.com/o/cardBg.jpg?alt=media&token=a00c289f-f13d-4fd6-b9b1-9e9d9016d8ad");
+  background-repeat: no-repeat;
+  background-size: cover;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
+  margin-bottom: 10vh;
+  transition: all 0.3s ease-in-out;
+}
+
+.lessonCard:hover {
+  cursor: pointer;
+  transform: scale(1.04);
+  box-shadow: 0px 0px 7px gray;
 }
 
 .lessonImg {
