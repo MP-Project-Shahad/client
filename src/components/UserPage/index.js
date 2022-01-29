@@ -83,7 +83,12 @@ const UserPage = () => {
 
   const getInfo = async () => {
     if (state.signIn.token) {
-      let res = await axios.get(`${BASE_URL}/oneUser/${state.signIn.user._id}`);
+      let res = await axios.get(
+        `${BASE_URL}/oneUser/${state.signIn.user._id}`,
+        {
+          headers: { Authorization: `Bearer ${state.signIn.token}` },
+        }
+      );
       setUser(res.data);
       console.log(res.data);
     }
@@ -93,7 +98,10 @@ const UserPage = () => {
   const editInfo = async () => {
     let res = await axios.post(
       `${BASE_URL}/editUser/${state.signIn.user._id}`,
-      { newName, newEmail, newAvatar: url }
+      { newName, newEmail, newAvatar: url },
+      {
+        headers: { Authorization: `Bearer ${state.signIn.token}` },
+      }
     );
     console.log(res.data, "RES DATA");
     let token = localStorage.getItem("token");
@@ -145,13 +153,17 @@ const UserPage = () => {
 
   //to get all users for admin dashboard
   const getUsers = async () => {
-    let res = await axios.get(`${BASE_URL}/users`);
+    let res = await axios.get(`${BASE_URL}/users`, {
+      headers: { Authorization: `Bearer ${state.signIn.token}` },
+    });
     setAllUsers(res.data);
   };
 
   //deleting user for users & admins
   const delUser = async (id) => {
-    let res = await axios.put(`${BASE_URL}/delUser/${id}`);
+    let res = await axios.put(`${BASE_URL}/delUser/${id}`, {
+      headers: { Authorization: `Bearer ${state.signIn.token}` },
+    });
     console.log(res);
   };
 

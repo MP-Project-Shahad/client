@@ -60,7 +60,7 @@ const LessonsPage = () => {
             </div>
           ) : (
             <>
-              {state.signIn.user.level === "level 1" ? (
+              {state.signIn.user.level === "level-1" ? (
                 <>
                   <div className="mainLevelLessonsDiv">
                     <h1>Level 1</h1>
@@ -70,8 +70,14 @@ const LessonsPage = () => {
                           {lessons.map((ele) => {
                             return (
                               <div className="lessonCard">
-                                <h1>{ele.name}</h1>
-                                ghfcdgdfxcd
+                                <h3>{ele.title}</h3>
+                                <p>{ele.desc}</p>
+                                <button
+                                  className="mainBtn"
+                                  onClick={() => navigate(`/lesson/${ele._id}`)}
+                                >
+                                  start Lesson
+                                </button>
                               </div>
                             );
                           })}
@@ -86,7 +92,7 @@ const LessonsPage = () => {
                 </>
               ) : (
                 <>
-                  {state.signIn.user.level === "level 2" ? (
+                  {state.signIn.user.level === "level-2" ? (
                     <>
                       <div className="mainLevelLessonsDiv">
                         <h1>Level 2</h1>
@@ -96,8 +102,16 @@ const LessonsPage = () => {
                               {lessons.map((ele) => {
                                 return (
                                   <div className="lessonCard">
-                                    <h1>{ele.name}</h1>
-                                    ghfcdgdfxcd
+                                    <h3>{ele.title}</h3>
+                                    <p>{ele.desc}</p>
+                                    <button
+                                      className="mainBtn"
+                                      onClick={() =>
+                                        navigate(`/lesson/${ele._id}`)
+                                      }
+                                    >
+                                      start Lesson
+                                    </button>
                                   </div>
                                 );
                               })}
