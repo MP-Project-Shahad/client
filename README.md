@@ -1,9 +1,6 @@
 # مشروع تحدث العربية
 ## User Story
 
-##site screenshot
-![site screenshot](https://user-images.githubusercontent.com/92247858/157385534-cefcc75a-4028-4bcb-9d26-f7406a7fd122.jpeg)
-
 
 - **Landing**: This page is the main page of the site. It'll have a navigation bar, header of the site logo and main design (arabic letters), mini store section where we'll show some products that supports the campaign (تحدث العربية) or just basicaly has to do with arabic. In the store section we won't be showing product that we sell ourselves clicking on the product will take you to the store that sells it and you can order it from there. Landing page will also have a podcast section for the campaign podcast (تحدث العربية). If the user is logged in the lessons proccess will be also shown the first thing on landing page with some optional quizes.This page will be Public but some features will only show for registred users
 
@@ -72,3 +69,5 @@
 
 
 
+##site screenshot
+![site screenshot](https://user-images.githubusercontent.com/92247858/157385534-cefcc75a-4028-4bcb-9d26-f7406a7fd122.jpeg)
